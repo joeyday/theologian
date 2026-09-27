@@ -233,7 +233,8 @@ def _load_dotenv() -> None:
         for line in env.read_text().splitlines():
             if "=" in line and not line.lstrip().startswith("#"):
                 k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip().strip("\"'"))
+                if v := v.strip().strip("\"'"):
+                    os.environ.setdefault(k.strip(), v)
 
 
 def main(argv: list[str] | None = None) -> int:
