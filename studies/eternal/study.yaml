@@ -1,39 +1,113 @@
 title: Eternal
 page: Eternal.md
 intro: Places in Scripture where anything is called “eternal”, “everlasting”, or “forever”.
-criteria: >-
-  Include a verse when it calls some person or thing eternal, everlasting, perpetual, or lasting
-  forever (or "to all generations", "from everlasting to everlasting"), in any grammatical form, or
-  says it will never end. The heading is who or what is said to be eternal. Expressions like
-  "long live the king" or hyperbolic court formulas still count, but categorize them for what they
-  are. Words meaning "of old" or "ancient" count only when they express eternity (e.g. "the eternal
-  God"), not mere antiquity or direction ("east").
+criteria: Include a verse when it calls some person or thing eternal, everlasting, perpetual, or lasting
+  forever (or "to all generations", "from everlasting to everlasting"), in any grammatical form, or says
+  it will never end. The heading is who or what is said to be eternal. Expressions like "long live the
+  king" or hyperbolic court formulas still count, but categorize them for what they are. Words meaning
+  "of old" or "ancient" count only when they express eternity (e.g. "the eternal God"), not mere antiquity
+  or direction ("east").
 queries:
-  - name: olam (עוֹלָם)
-    strongs: [H5769]
-  - name: ad (עַד, forever)
-    strongs: [H5703]
-  - name: netsach (נֶצַח)
-    strongs: [H5331]
-  - name: qedem (קֶדֶם, of old/eternal)
-    strongs: [H6924, H6927]
-  - name: Aramaic alam (עָלַם)
-    strongs: [H5957]
-  - name: tamid (תָּמִיד, continually)
-    strongs: [H8548]
-  - name: orek yamim (אֹרֶךְ יָמִים, length of days)
-    strongs: [H0753]
-    with: {strongs: [H3117], window: 0}
-  - name: yom in the sense "always" (e.g. kol hayyom, Ge 43:9)
-    strongs: [H3117K]
-  - name: aion (αἰών)
-    strongs: [G0165]
-  - name: aionios (αἰώνιος)
-    strongs: [G0166]
-  - name: aidios (ἀΐδιος)
-    strongs: [G0126]
-  - name: diēnekēs (διηνεκής, perpetual)
-    strongs: [G1336]
-  - name: English
-    english: ['\beternal(ly)?\b', '\beverlasting\b', '\bfor ?ever(more)?\b', '\bevermore\b', '\bperpetual(ly)?\b', '\bendless\b', '\bnever (end|cease|pass away|fade)', '\ball generations\b', '\bimperishable\b']
-categories: []
+- name: olam (עוֹלָם)
+  strongs:
+  - H5769
+- name: ad (עַד, forever)
+  strongs:
+  - H5703
+- name: netsach (נֶצַח)
+  strongs:
+  - H5331
+- name: qedem (קֶדֶם, of old/eternal)
+  strongs:
+  - H6924
+  - H6927
+- name: Aramaic alam (עָלַם)
+  strongs:
+  - H5957
+- name: tamid (תָּמִיד, continually)
+  strongs:
+  - H8548
+- name: orek yamim (אֹרֶךְ יָמִים, length of days)
+  strongs:
+  - H0753
+  with:
+    strongs:
+    - H3117
+    window: 0
+- name: yom in the sense "always" (e.g. kol hayyom, Ge 43:9)
+  strongs:
+  - H3117K
+- name: aion (αἰών)
+  strongs:
+  - G0165
+- name: aionios (αἰώνιος)
+  strongs:
+  - G0166
+- name: aidios (ἀΐδιος)
+  strongs:
+  - G0126
+- name: diēnekēs (διηνεκής, perpetual)
+  strongs:
+  - G1336
+- name: English
+  english:
+  - \beternal(ly)?\b
+  - \beverlasting\b
+  - \bfor ?ever(more)?\b
+  - \bevermore\b
+  - \bperpetual(ly)?\b
+  - \bendless\b
+  - \bnever (end|cease|pass away|fade)
+  - \ball generations\b
+  - \bimperishable\b
+categories:
+- name: God
+  description: God himself, his being or life, is called eternal or everlasting, lives forever, or is
+    'from everlasting to everlasting'.
+- name: God’s name, reign, power, divinity, ways, steadfast love, blessedness
+  description: An attribute, possession or act of God (name, throne, kingdom, dominion, power, glory,
+    love, faithfulness, counsel, purpose, works, praise owed him) is said to endure or be ascribed to
+    him forever.
+- name: Jesus, the Son
+  description: The Messiah, Son or coming ruler, or his throne, kingdom, priesthood or life, is called
+    eternal or said to endure forever.
+- name: The Spirit
+  description: God's Spirit is called eternal or is said to remain with his people forever.
+- name: God’s word, law, righteousness, salvation
+  description: God's word, testimonies, judgments or righteousness, or the salvation, redemption or gospel
+    he gives, is said to stand or last forever.
+- name: God’s covenants
+  description: A covenant God makes (with Noah, Abraham, Israel, Levi, David, or the new covenant) is
+    called everlasting or said to be remembered forever.
+- name: Life of believers
+  description: Life that God gives is described as eternal or everlasting, or a person is said to live
+    forever or never die.
+- name: Believers, the righteous
+  description: Blessings other than life itself are promised to the righteous or God's people as lasting
+    forever, including inheritance, joy, glory, security, name, or dwelling with God.
+- name: David’s throne and house
+  description: David's line, house, lamp, throne or kingdom is promised to endure forever, whether unconditionally
+    or conditionally.
+- name: Israel and the land
+  description: The nation of Israel is established as God's people forever, or its land is given as an
+    everlasting possession.
+- name: Zion, Jerusalem, the temple
+  description: God's chosen city, mountain or house, or his Name or dwelling there, is said to remain
+    forever.
+- name: Priesthood, statutes, feasts, offerings
+  description: A Mosaic ordinance, priestly office or portion, feast, sign or sacrifice is called a permanent
+    or everlasting statute, covenant or portion.
+- name: Punishment of the wicked
+  description: Judgment on persons, nations, cities or spiritual beings is described as eternal or forever,
+    including fire, destruction, shame, contempt, desolation, ruin or torment.
+- name: God’s anger?
+  description: A verse asks whether, or denies that, God's anger, rejection or forgetting lasts forever,
+    or conversely declares that it will burn forever.
+- name: Earth, heavens, created order
+  description: The earth, heavenly bodies or natural order are said to endure forever or were fixed by
+    a lasting decree.
+- name: Mountains, hills
+  description: Mountains or hills are called everlasting, perpetual or ancient.
+- name: Men, human things?
+  description: '''Forever'' is applied loosely to merely human matters, including court wishes that a
+    king live forever, service or slavery for life, human oaths, memorials, and proverbial sayings.'
