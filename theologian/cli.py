@@ -97,7 +97,10 @@ def cmd_classify(args) -> int:
             ref = parse_ref(r)
             wanted |= set(ref.verses(load().verse_counts))
         cands = [c for c in cands if c.verse in wanted]
-    if not args.redo:
+    if args.multi:
+        done = _load_classifications(study)
+        cands = [c for c in cands if len(done.get(c.ref, {}).get("categories", [])) > 1]
+    elif not args.redo:
         done = _load_classifications(study)
         cands = [c for c in cands if c.ref not in done]
     key = api_key()
@@ -268,6 +271,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--limit", type=int, help="only the first N requests (chapters)")
     p.add_argument("--only", nargs="+", metavar="REF", help="only candidates within these refs, e.g. 'Ps 2' 'Mt 5:9'")
     p.add_argument("--redo", action="store_true", help="re-classify verses already classified")
+    p.add_argument("--multi", action="store_true", help="re-classify only verses currently in 2+ categories")
     p.add_argument("--bsb", action="store_true", help="use the BSB text even if an ESV key is set")
     p.set_defaults(func=cmd_classify)
 

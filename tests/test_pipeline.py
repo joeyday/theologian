@@ -92,3 +92,29 @@ def test_audit_surfaces_extra_categories(tmp_path):
     # Hos 11:1 is listed under Israel and Allegories, so only "Of Jesus" is extra, reported once
     extras = [(title, str(i.ref), e) for title, i, e, _ in a.also]
     assert extras == [("Of Israel", "Hos 11:1", {"Of Jesus": ["Hos 11:1"]})]
+
+
+def test_classify_stores_primary_first(tmp_path):
+    from theologian import llm
+    from theologian.classify import merge_results, schema
+
+    s = study(tmp_path)
+    sch = schema(s)["properties"]["verses"]["items"]["properties"]
+    assert sch["category"]["enum"] == ["Of Israel", "Allegories", "Of Jesus", ""]
+    base = {"proposed_category": "", "confidence": "high", "rationale": "r", "note": ""}
+    out = {"verses": [
+        {"ref": "Hos 11:1", "relevant": True, "category": "Of Israel", "also": ["Of Jesus", "Of Israel"], **base},
+        {"ref": "Hos 11:2", "relevant": False, "category": "", "also": [], **base},
+        {"ref": "Hos 11:3", "relevant": True, "category": "", "also": [], **{**base, "proposed_category": "X"}},
+    ]}
+    data, errors = merge_results(s, [llm.Result("Hos-11", out)], "m")
+    assert not errors
+    assert data["Hos 11:1"]["categories"] == ["Of Israel", "Of Jesus"]
+    assert data["Hos 11:2"]["categories"] == []
+    assert data["Hos 11:3"]["categories"] == [] and data["Hos 11:3"]["proposed_category"] == "X"
+
+
+def test_audit_quotes_category_names():
+    from theologian.audit import q
+
+    assert q(["Of believers, the elect", "Of Jesus"]) == '"Of believers, the elect", "Of Jesus"'

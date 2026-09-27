@@ -108,6 +108,14 @@ def audit(study: Study, page: Page, corpus: Corpus, candidates: set[Verse], cls:
     return a
 
 
+def q(names) -> str:
+    """Category names quoted and comma-separated; the names themselves may
+    contain commas ("Of believers, the elect")."""
+    if isinstance(names, str):
+        names = [names]
+    return ", ".join(f"\"{n}\"" for n in names)
+
+
 def _why(results: list[dict]) -> str:
     best = max(results, key=lambda r: {"high": 2, "medium": 1, "low": 0}[r["confidence"]])
     return f"({best['confidence']}) {best['rationale']}"
@@ -129,33 +137,35 @@ def report(study: Study, a: Audit) -> str:
               "`decisions.yaml` under `exclude` to stop seeing them.", ""]
     by_cat: dict[str, list] = {}
     for ref, c in a.missing:
-        key = ", ".join(c["categories"]) or f"(proposed: {c['proposed_category']})"
+        # grouped by the primary heading; any extra headings are noted on the line
+        key = c["categories"][0] if c["categories"] else f"(proposed) {c['proposed_category']}"
         by_cat.setdefault(key, []).append((ref, c))
     for cat, rows in sorted(by_cat.items()):
         lines.append(f"### {cat}")
         for ref, c in rows:
             note = f" — note: {c['note']}" if c.get("note") else ""
-            lines.append(f"- **{ref}** ({c['confidence']}) {c['rationale']}{note}")
+            also = f" — also: {q(c['categories'][1:])}" if len(c["categories"]) > 1 else ""
+            lines.append(f"- **{ref}** ({c['confidence']}) {c['rationale']}{also}{note}")
         lines.append("")
 
     lines += [f"## Different category ({len(a.other_category)})", ""]
     for title, item, cats, results in a.other_category:
-        lines.append(f"- **{item.ref}** — page: {title}; model: {', '.join(sorted(cats))}. {_why(results)}")
+        lines.append(f"- **{item.ref}** — page: {q(title)}; model: {q(sorted(cats))}. {_why(results)}")
     lines += ["", f"## Also suggested for another category ({len(a.also)})", "",
               "The model agrees with your placement but also puts these verses under a heading "
               "where the page doesn't list them.", ""]
     for title, item, extra, results in a.also:
-        adds = "; ".join(f"{cat} ({', '.join(vs)})" for cat, vs in extra.items())
-        lines.append(f"- **{item.ref}** — page: {title}; also: {adds}. {_why(results)}")
+        adds = "; ".join(f"{q(cat)} ({', '.join(vs)})" for cat, vs in extra.items())
+        lines.append(f"- **{item.ref}** — page: {q(title)}; also: {adds}. {_why(results)}")
     lines += ["", f"## Judged not relevant ({len(a.not_relevant)})", "",
               "Includes entries whose verses the model read as context rather than the point itself.", ""]
     for title, item, results in a.not_relevant:
-        lines.append(f"- **{item.ref}** — page: {title}. {_why(results)}")
+        lines.append(f"- **{item.ref}** — page: {q(title)}. {_why(results)}")
     lines += ["", f"## Never reached by the search ({len(a.not_found)})", "",
               "These entries were found by your reading, not by any query in study.yaml.", ""]
     for title, item in a.not_found:
-        lines.append(f"- **{item.ref}** — {title}")
+        lines.append(f"- **{item.ref}** — {q(title)}")
     if a.unclassified:
         lines += ["", f"## Found but not yet classified ({len(a.unclassified)})", ""]
-        lines += [f"- {item.ref} — {title}" for title, item in a.unclassified]
+        lines += [f"- {item.ref} — {q(title)}" for title, item in a.unclassified]
     return "\n".join(lines) + "\n"

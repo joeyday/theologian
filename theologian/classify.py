@@ -27,12 +27,13 @@ The finished page lists every relevant passage, grouped by category. {intro}
 What belongs in the study:
 {criteria}
 
-Categories (a verse may belong to more than one):
+Categories:
 {categories}
 
 You will receive one chapter of Scripture and a list of candidate verses in it that a word search flagged. For each candidate verse:
 - relevant: does the verse itself belong in the study? A word match alone is not enough; judge by what the text says, read in its context.
-- categories: every category that applies (usually one) when relevant; empty when not relevant. If the verse is relevant but no category fits, leave this empty and name one in proposed_category.
+- category: the one heading that best fits the verse when it is relevant; "" when it is not relevant, or when no heading fits (then name one in proposed_category). When two headings are plausible, pick the better one, lower your confidence, and name the alternative in the rationale.
+- also: usually empty. Add another heading only when the verse itself makes a second, separate statement that falls under it (two different subjects, each squarely under a different heading). Related themes, the surrounding context, or an alternative reading are not reasons to use it. The page should stay tight: each verse normally appears under one heading.
 - proposed_category: a short name for a missing category, or "".
 - confidence: high, medium, or low.
 - rationale: one sentence, at most 30 words, naming what in the text or its context decides it.
@@ -54,13 +55,14 @@ def schema(study: Study) -> dict:
         "properties": {
             "ref": {"type": "string"},
             "relevant": {"type": "boolean"},
-            "categories": {"type": "array", "items": cat},
+            "category": {"type": "string", "enum": names + [""]} if names else cat,
+            "also": {"type": "array", "items": cat},
             "proposed_category": {"type": "string"},
             "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
             "rationale": {"type": "string"},
             "note": {"type": "string"},
         },
-        "required": ["ref", "relevant", "categories", "proposed_category", "confidence", "rationale", "note"],
+        "required": ["ref", "relevant", "category", "also", "proposed_category", "confidence", "rationale", "note"],
         "additionalProperties": False,
     }
     return {
@@ -120,6 +122,11 @@ def merge_results(study: Study, results: list[llm.Result], model: str) -> tuple[
             continue
         for v in r.data.get("verses", []):
             ref = v.pop("ref")
-            data[ref] = {**v, "model": model, "date": today}
+            # Stored as one list, primary heading first (the format audit/draft read).
+            primary, also = v.pop("category", ""), v.pop("also", [])
+            cats = ([primary] if primary else []) + [c for c in also if c != primary]
+            relevant = v.pop("relevant")
+            data[ref] = {"relevant": relevant, "categories": cats if relevant else [],
+                         **v, "model": model, "date": today}
     llm.save_json(path, data)
     return data, errors
