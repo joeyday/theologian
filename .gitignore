@@ -5,3 +5,4 @@ data/
 .env
 studies/*/candidates.json
 studies/*/out/
+.DS_Store
