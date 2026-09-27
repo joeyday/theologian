@@ -15,7 +15,7 @@ from datetime import date
 from . import llm
 from .corpus import Corpus
 from .gather import Candidate
-from .refs import FULL_NAME
+from .refs import ABBREVS, FULL_NAME
 from .study import Study
 
 CHUNK = 30  # max candidate verses per request
@@ -37,14 +37,19 @@ You will receive one chapter of Scripture and a list of candidate verses in it t
 - proposed_category: a short name for a missing category, or "".
 - confidence: high, medium, or low.
 - rationale: one sentence, at most 30 words, naming what in the text or its context decides it.
-- note: a terse parenthetical in the page's style when it would help a reader, such as "cites Ps 2:7", "cited at Heb 1:5", "see ESV footnote", "allegorically", "cf. Mk 7:27–28"; otherwise "".
+- cites, cited_at, parallels, esv_footnote: the page's only inline notes. Leave them empty for most verses; never use them for general cross-references, similar wording, or commentary (put any remark in the rationale instead). Write references with these book abbreviations: {abbrevs}.
+  - cites: for a New Testament verse, the Old Testament text(s) it quotes or clearly alludes to, e.g. "Ps 2:7; 2Sa 7:14".
+  - cited_at: for an Old Testament verse, where the New Testament quotes or clearly alludes to it, e.g. "Ac 13:33; Heb 1:5".
+  - parallels: only parallel accounts of the same event or saying: the same episode in other Gospels, Samuel–Kings and Chronicles, or a psalm reproduced elsewhere (Ps 18 and 2Sa 22, Ps 105 and 1Ch 16). E.g. "Mk 10:30; Lk 18:30".
+  - esv_footnote: true only when the chapter text you were given has an ESV footnote on this verse that bears on whether or where it belongs (a textual variant or alternative rendering).
 
 Read each text on its own terms and in its literary context. Do not import the conclusions of any particular theological tradition. Where careful readers genuinely disagree, choose the reading the text best supports, lower your confidence, and say why in the rationale. Report every candidate verse you were given, in order, using the reference exactly as given."""
 
 
 def system_prompt(study: Study) -> str:
     cats = "\n".join(f"- {c.name}: {c.description}".rstrip(": ") for c in study.categories) or "(none yet)"
-    return SYSTEM.format(title=study.title, intro=study.intro, criteria=study.criteria or "(see title)", categories=cats)
+    return SYSTEM.format(title=study.title, intro=study.intro, criteria=study.criteria or "(see title)",
+                         categories=cats, abbrevs=", ".join(ABBREVS))
 
 
 def schema(study: Study) -> dict:
@@ -60,9 +65,13 @@ def schema(study: Study) -> dict:
             "proposed_category": {"type": "string"},
             "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
             "rationale": {"type": "string"},
-            "note": {"type": "string"},
+            "cites": {"type": "string"},
+            "cited_at": {"type": "string"},
+            "parallels": {"type": "string"},
+            "esv_footnote": {"type": "boolean"},
         },
-        "required": ["ref", "relevant", "category", "also", "proposed_category", "confidence", "rationale", "note"],
+        "required": ["ref", "relevant", "category", "also", "proposed_category", "confidence", "rationale",
+                     "cites", "cited_at", "parallels", "esv_footnote"],
         "additionalProperties": False,
     }
     return {

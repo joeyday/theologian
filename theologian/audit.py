@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 import yaml
 
 from .corpus import Corpus, Verse
+from .notes import note_text
 from .refs import parse_ref
 from .sitemd import Item, Page
 from .study import Study
@@ -143,7 +144,7 @@ def report(study: Study, a: Audit) -> str:
     for cat, rows in sorted(by_cat.items()):
         lines.append(f"### {cat}")
         for ref, c in rows:
-            note = f" — note: {c['note']}" if c.get("note") else ""
+            note = f" — {nt}" if (nt := note_text(c)) else ""
             also = f" — also: {q(c['categories'][1:])}" if len(c["categories"]) > 1 else ""
             lines.append(f"- **{ref}** ({c['confidence']}) {c['rationale']}{also}{note}")
         lines.append("")

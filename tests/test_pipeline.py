@@ -34,9 +34,13 @@ def study(tmp_path):
     return s
 
 
-def c(relevant, cats, conf="high", note=""):
-    return {"relevant": relevant, "categories": cats, "proposed_category": "", "confidence": conf,
-            "rationale": "because", "note": note}
+def c(relevant, cats, conf="high", note="", **fields):
+    d = {"relevant": relevant, "categories": cats, "proposed_category": "", "confidence": conf,
+         "rationale": "because", "note": note}
+    if fields:
+        del d["note"]
+        d |= {"cites": "", "cited_at": "", "parallels": "", "esv_footnote": False} | fields
+    return d
 
 
 CLS = {
@@ -71,7 +75,8 @@ def test_draft_adds_flagged_ranges_and_new_sections(tmp_path):
     out = draft(s, parse_page(PAGE), corpus(), cls).render()
     assert "### Of Israel\nIsa 63:16–17 %% new (low): because %%; Hos 11:1; Mal 1:6\n" in out
     assert "### Allegories\nPs 103:13; Mal 1:6 %% new (high): because %%\n" in out
-    assert "### Of Jesus\nHos 11:3 ~(cf. Mt 2:15)~ %% new (high): because %%\n## See also" in out
+    # a legacy free-form "cf." note is not a house-style note: it goes into the comment
+    assert "### Of Jesus\nHos 11:3 %% new (high): because Remark: cf. Mt 2:15 %%\n## See also" in out
     # everything else untouched
     assert out.startswith("---\ndraft: true\n---\nIntro.\n### Of Israel\n")
 
@@ -118,3 +123,42 @@ def test_audit_quotes_category_names():
     from theologian.audit import q
 
     assert q(["Of believers, the elect", "Of Jesus"]) == '"Of believers, the elect", "Of Jesus"'
+
+
+def _section(tmp_path, cls, page_text="### Of Israel\n"):
+    from theologian.render import draft
+
+    out = draft(study(tmp_path), parse_page(page_text), corpus(), cls).render()
+    return out.split("### Of Israel\n", 1)[1].split("\n", 1)[0]
+
+
+def test_structured_notes_in_house_style(tmp_path):
+    cls = {"Hos 11:1": c(True, ["Of Israel"], cited_at="Matt. 2:15"),
+           "Mal 1:6": c(True, ["Of Israel"], parallels="1 Chr 16:15", esv_footnote=True)}
+    line = _section(tmp_path, cls)
+    assert line == ("Hos 11:1 ~(cited at Mt 2:15)~ %% new (high): because %%; "
+                    "Mal 1:6 ~(cf. 1Ch 16:15)~ ~(see ESV footnote)~ %% new (high): because %%")
+
+
+def test_cf_to_a_listed_verse_is_dropped(tmp_path):
+    # Joey's example: "Ge 13:15 (cf. Ge 17:8); Ge 17:8" -- here Hos 11:1 is already on the page
+    cls = {"Mal 1:6": c(True, ["Of Israel"], parallels="Hos 11:1")}
+    line = _section(tmp_path, cls, "### Of Israel\nHos 11:1\n")
+    assert line == "Hos 11:1; Mal 1:6 %% new (high): because %%"
+
+
+def test_new_parallels_fold_into_the_first(tmp_path):
+    cls = {"Hos 11:1": c(True, ["Of Israel"], parallels="Mal 1:6"),
+           "Mal 1:6": c(True, ["Of Israel"], parallels="Hos 11:1; Isa 63:16"),
+           "Isa 63:16": c(True, ["Of Israel"])}
+    line = _section(tmp_path, cls)
+    assert line == ("Isa 63:16 ~(cf. Hos 11:1; Mal 1:6)~ %% new (high): because "
+                    "(parallels folded in: Hos 11:1; Mal 1:6) %%")
+
+
+def test_note_ref_parsing():
+    from theologian.notes import parse_refs
+    from theologian.sitemd import render_items
+
+    assert render_items(parse_refs("2 Sam 22:51 and Deut. 13:16")) == "2Sa 22:51; Dt 13:16"
+    assert parse_refs("the land promise in v. 11") is None
