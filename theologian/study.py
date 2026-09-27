@@ -4,7 +4,7 @@
     page: God the Father.md          # file under the vault's topic/ folder
     intro: Places in Scripture where …
     criteria: Include a verse when …     # what makes a verse belong (for the classifier)
-    model: claude-opus-5                 # optional overrides
+    model: claude-opus-5-5               # optional overrides
     effort: low
     queries:                         # candidate search, see gather.py
       - name: pater

@@ -12,15 +12,15 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 
-DEFAULT_MODEL = "claude-opus-5"
+DEFAULT_MODEL = "claude-opus-5-5"
 DEFAULT_EFFORT = "low"
 
-# $ per million tokens (input, output), standard API rates; batches are half.
+# $ per million tokens (input, output, cache read), standard API rates; batches are half.
 PRICES = {
-    "claude-opus-5": (5.00, 25.00),
-    "claude-opus-5-5": (4.00, 20.00),
-    "claude-sonnet-5": (2.00, 10.00),
-    "claude-haiku-4-5": (1.00, 5.00),
+    "claude-opus-5-5": (4.00, 20.00, 0.20),
+    "claude-opus-5": (5.00, 25.00, 0.50),
+    "claude-sonnet-5": (2.00, 10.00, 0.20),
+    "claude-haiku-4-5": (1.00, 5.00, 0.10),
 }
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
 
@@ -130,8 +130,8 @@ def estimate_tokens(requests: dict[str, dict]) -> tuple[int, int]:
 
 
 def cost(model: str, input_tokens: int, output_tokens: int, cache_read: int = 0, batch: bool = False) -> float:
-    pin, pout = PRICES.get(model, PRICES[DEFAULT_MODEL])
-    usd = (input_tokens * pin + cache_read * pin * 0.1 + output_tokens * pout) / 1e6
+    pin, pout, pcache = PRICES.get(model, PRICES[DEFAULT_MODEL])
+    usd = (input_tokens * pin + cache_read * pcache + output_tokens * pout) / 1e6
     return usd / 2 if batch else usd
 
 

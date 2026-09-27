@@ -104,7 +104,7 @@ def build_requests(study: Study, corpus: Corpus, cands: list[Candidate], esv=Non
                     f"Candidate verses to classify:\n{listing}")
             cid = f"{book}-{ch}" + (f"-{i // CHUNK + 1}" if len(group) > CHUNK else "")
             requests[cid] = llm.params(model, effort, system, user, sch,
-                                       max_tokens=min(16000, 3000 + 250 * len(part)))
+                                       max_tokens=min(32000, 8000 + 250 * len(part)))
     return requests
 
 

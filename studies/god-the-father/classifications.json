@@ -1,0 +1,50 @@
+{
+ "Ps 2:7": {
+  "relevant": true,
+  "categories": [
+   "Of the King of Israel and/or Messiah"
+  ],
+  "proposed_category": "",
+  "confidence": "high",
+  "rationale": "The LORD declares to His installed King and Anointed on Zion, \"You are My Son; today I have begotten you.\"",
+  "note": "cited at Ac 13:33; Heb 1:5; 5:5",
+  "model": "claude-opus-5-5",
+  "date": "2026-09-26"
+ },
+ "Ps 2:12": {
+  "relevant": true,
+  "categories": [
+   "Of the King of Israel and/or Messiah"
+  ],
+  "proposed_category": "",
+  "confidence": "medium",
+  "rationale": "\"Kiss the Son\" refers back to the royal Son of v. 7. However, the Hebrew bar is disputed; some translate it \"kiss purely\" or \"kiss his feet.\"",
+  "note": "Aramaic bar; see ESV footnote",
+  "model": "claude-opus-5-5",
+  "date": "2026-09-26"
+ },
+ "Hos 11:1": {
+  "relevant": true,
+  "categories": [
+   "Of Israel"
+  ],
+  "proposed_category": "",
+  "confidence": "high",
+  "rationale": "God calls the nation Israel 'My son,' called out of Egypt; the parental imagery of the chapter continues this.",
+  "note": "cited at Mt 2:15",
+  "model": "claude-opus-5-5",
+  "date": "2026-09-26"
+ },
+ "Hos 11:10": {
+  "relevant": true,
+  "categories": [
+   "Of Israel"
+  ],
+  "proposed_category": "",
+  "confidence": "high",
+  "rationale": "The returning Israelites are called the LORD's 'children' (banim), continuing the chapter's portrayal of Israel as God's son.",
+  "note": "Heb. 'sons'",
+  "model": "claude-opus-5-5",
+  "date": "2026-09-26"
+ }
+}
