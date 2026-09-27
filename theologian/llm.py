@@ -98,15 +98,44 @@ def submit_batch(requests: dict[str, dict]) -> str:
     return batch.id
 
 
-def wait_batch(batch_id: str, progress=print, poll: int = 30) -> list[Result]:
+def _elapsed(since) -> str:
+    from datetime import datetime, timezone
+
+    secs = int((datetime.now(timezone.utc) - since).total_seconds())
+    h, m = divmod(secs // 60, 60)
+    return f"{h} h {m} min" if h else f"{m} min"
+
+
+def wait_batch(batch_id: str, poll: int = 60) -> list[Result]:
+    """Wait for a batch to end, then fetch its results.
+
+    The API reports every request as "processing" until the whole batch ends,
+    so there's no partial progress to show -- just elapsed time. On a terminal
+    the status updates in place; otherwise it prints every 10 minutes."""
+    import sys
+
     c = client()
+    tty = sys.stdout.isatty()
+    last_print = None
     while True:
         b = c.messages.batches.retrieve(batch_id)
         if b.processing_status == "ended":
             break
         n = b.request_counts
-        progress(f"batch {batch_id}: {n.processing} processing, {n.succeeded} done, {n.errored} errored")
+        total = n.processing + n.succeeded + n.errored + n.expired + n.canceled
+        status = (f"waiting for batch {batch_id} ({total} requests): {_elapsed(b.created_at)} elapsed; "
+                  f"results arrive all at once when it ends (usually within an hour, at most 24 h)")
+        if tty:
+            print("\r\033[K" + status, end="", flush=True)
+        elif last_print is None or time.monotonic() - last_print >= 600:
+            print(status, flush=True)
+            last_print = time.monotonic()
         time.sleep(poll)
+    if tty:
+        print("\r\033[K", end="")
+    n = b.request_counts
+    print(f"batch {batch_id} ended after {_elapsed(b.created_at)}: {n.succeeded} succeeded, "
+          f"{n.errored} errored, {n.expired} expired, {n.canceled} canceled")
     out = []
     for r in c.messages.batches.results(batch_id):
         if r.result.type == "succeeded":

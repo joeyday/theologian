@@ -126,7 +126,8 @@ def cmd_classify(args) -> int:
         return 0
     if batch:
         batch_id = llm.submit_batch(reqs)
-        print(f"submitted batch {batch_id}; waiting (Ctrl-C is safe: resume with `theo collect {study.slug} {batch_id}`)")
+        print(f"submitted batch {batch_id}. Ctrl-C only stops waiting here; the batch keeps running.\n"
+              f"Collect later with: theo collect {study.slug} {batch_id}")
         llm.save_json(study.dir / "runs" / f"{batch_id}.json", {"batch": batch_id, "model": model, "requests": list(reqs)})
         results = llm.wait_batch(batch_id)
     else:
