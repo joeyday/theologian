@@ -58,14 +58,13 @@ def lint_items(items: list[Item]) -> list[tuple[str, str]]:
             p = prev.ref
             if (p.book == r.book and p.chapter == r.chapter and not p.is_chapter_only
                     and not r.is_chapter_only and r.verse <= (p.end_verse or p.verse)
-                    and not prev.annotations and not prev.translation):
+                    and not any(a.breaks_chain for a in prev.annotations) and not prev.translation):
                 out.append(("verse-order", f"{r} follows {p} (verse goes backwards; missing book name?)"))
         if r.book in SINGLE_CHAPTER and (r.chapter > 1 and r.is_chapter_only):
             out.append(("chapter-in-single-chapter-book",
                         f"{src!r} links to chapter {r.chapter}; write {r.book} 1:{r.chapter}"))
         for ann, gap in zip(item.annotations, item.gaps):
-            want = "" if ann.kind in Annotation.ATTACHED else " "
-            if gap != want:
+            if gap != ann.spacing(gap):
                 out.append(("spacing", f"irregular spacing before {ann.raw[:20]!r}"))
         prev = item
     return out

@@ -57,3 +57,35 @@ def test_unmodified_lines_keep_source():
     assert page.render() == "Isa 51:17; 51:22\n"
     page.lines[0].source = None  # modified → canonical
     assert page.render() == "Isa 51:17, 22\n"
+
+
+def test_comments_do_not_break_book_continuation():
+    # build.js strips %% comments before linking, so the book carries across them
+    from theologian.sitemd import Annotation, Item
+
+    refs = ["Ps 9:7", "Ps 90:2", "Ps 93:2", "Ps 102:24", "Ps 102:27"]
+    items = [Item(parse_ref(r), [Annotation("comment", "%% new (high): x %%")]) for r in refs]
+    line = render_items(items)
+    assert line == ("Ps 9:7%% new (high): x %%; 90:2%% new (high): x %%; 93:2%% new (high): x %%; "
+                    "102:24%% new (high): x %%, 27%% new (high): x %%")
+    assert [i.ref for i in parse_refline(line)] == [parse_ref(r) for r in refs]
+    # ...and deleting the comments leaves the tight form
+    assert render_items([Item(i.ref) for i in items]) == "Ps 9:7; 90:2; 93:2; 102:24, 27"
+
+
+def test_notes_still_break_continuation():
+    items = parse_refline("Ps 2:7 ~(cited at Ac 13:33)~; Ps 2:12")
+    assert render_items(items) == "Ps 2:7 ~(cited at Ac 13:33)~; Ps 2:12"
+
+
+def test_comment_spacing():
+    import re
+
+    from theologian.sitemd import Annotation, Item
+
+    # new comments attach, so stripping them (as build.js does) leaves clean text
+    line = render_items([Item(parse_ref("Ps 9:7"), [Annotation("comment", "%% new: x %%")]), Item(parse_ref("Ps 90:2"))])
+    assert re.sub(r"%%[\s\S]*?%%", "", line) == "Ps 9:7; 90:2"
+    # a comment written with a space before it keeps it
+    src = "Ge 22:17–18 %% probably more? %%; Ex 1:1"
+    assert render_items(parse_refline(src)) == src

@@ -42,6 +42,23 @@ class Annotation:
 
     ATTACHED = ("footnote", "ff")
 
+    def spacing(self, source_gap: str | None = None) -> str:
+        """Whitespace before this annotation. Footnote markers and "ff" attach
+        to the ref; notes follow a space. Comments attach too, so removing one
+        (by hand, or by the site build) leaves no stray space before the next
+        separator -- but a comment's spacing as written in the source is kept."""
+        if self.kind in self.ATTACHED:
+            return ""
+        if self.kind == "comment":
+            return source_gap if source_gap in ("", " ") else ""
+        return " "
+
+    @property
+    def breaks_chain(self) -> bool:
+        """Whether a following ref must repeat its book name. Comments are
+        stripped by the site build before refs are linked, so they don't."""
+        return self.kind != "comment"
+
     @property
     def text(self) -> str:
         """Note text without the ~( )~ wrapper."""
@@ -241,7 +258,8 @@ def parse_refline(s: str) -> list[Item]:
             ann, gap, pos = found
             item.annotations.append(ann)
             item.gaps.append(gap)
-            chain = False
+            if ann.breaks_chain:
+                chain = False
         # separator or end
         rest = s[pos:]
         if not rest.strip(" ;,"):
@@ -259,12 +277,14 @@ def link_form(prev: Item | None, item: Item) -> str:
 
     The book is omitted only when it continues the previous ref's book with
     no translation or annotation in between (build.js breaks the chain on any
-    intervening text). Whole-chapter refs always carry their book name, since
-    a bare number would read as a verse."""
+    intervening text). %% comments don't count: build.js strips them before
+    linking. Whole-chapter refs always carry their book name, since a bare
+    number would read as a verse."""
     if prev is None:
         return "full"
     p, r = prev.ref, item.ref
-    if p.book != r.book or prev.annotations or prev.translation or r.is_chapter_only:
+    breaks = any(a.breaks_chain for a in prev.annotations)
+    if p.book != r.book or breaks or prev.translation or r.is_chapter_only:
         return "full"
     if not p.is_chapter_only and not r.end_chapter and p.chapter == r.chapter:
         return "verses"
@@ -287,8 +307,8 @@ def render_items(items: list[Item]) -> str:
             out += "; " + str(r)
         if item.translation:
             out += " " + item.translation
-        for a in item.annotations:
-            out += a.raw if a.kind in Annotation.ATTACHED else " " + a.raw
+        for k, a in enumerate(item.annotations):
+            out += a.spacing(item.gaps[k] if k < len(item.gaps) else None) + a.raw
         prev = item
     return out
 
