@@ -1,0 +1,19 @@
+[project]
+name = "theologian"
+version = "0.1.0"
+description = "Topical Bible study pipeline for Tota Scriptura"
+requires-python = ">=3.12"
+dependencies = ["pyyaml", "anthropic>=1.8"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+theo = "theologian.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["theologian"]

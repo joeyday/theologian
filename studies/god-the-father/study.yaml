@@ -1,0 +1,58 @@
+title: God the Father
+page: God the Father.md
+intro: Places in Scripture where God is called “Father” or people are called “sons” or “children” of God.
+criteria: >-
+  Include a verse when it calls God "Father" (of anyone or anything), or calls some person or group
+  a son, child, or offspring of God, or speaks of God begetting, bearing, or adopting them. Include
+  parables in which a father or son figure stands for God or his people, and allegories or similes
+  that compare God to a father (or parent) and people to his children. A human father or son in an
+  ordinary sense does not qualify.
+queries:
+  - name: πατήρ/Abba
+    strongs: [G3962, G0005]
+  - name: son/child/born/firstborn (NT)
+    strongs: [G5207, G5043, G5206, G1080, G3439, G1085, G0313, G0616, G0738, G4416, G5040, G3813]
+  - name: household of God (NT)
+    strongs: [G3609]
+  - name: father (OT)
+    strongs: [H0001]
+    with: {strongs: [H0430, H3068, H0410, H0433, H5945, H0136, H7706], window: 2}
+  - name: son/child/begotten/firstborn (OT)
+    strongs: [H1121, H1323, H3206, H3205, H1060]
+    with: {strongs: [H0430, H3068, H0410, H0433, H5945, H0136, H7706], window: 1}
+  - name: God's first person (BSB capitalizes divine pronouns)
+    english: ['\b(My|His|Your) (sons?|daughters?|children|child|firstborn|offspring)\b']
+    case: true
+  - name: English, capitalized
+    english: ['\bFather\b', '\bSon\b']
+    case: true
+  - name: English phrases
+    english: ['\b(sons?|children|child|offspring) of (God|the Most High|the living God|light)\b', '\bborn (of God|again|of the Spirit)\b', '\badoption\b', '\bbegotten\b']
+categories:
+  - name: Of Jesus
+    description: God is the Father of Jesus, or Jesus is called the Son of God / God's Son.
+  - name: Of “the sons of God”
+    description: The heavenly beings or divine council called "sons of God" (e.g. Ge 6, Job 1).
+  - name: Of Adam
+    description: Adam as son of God.
+  - name: Of the King of Israel and/or Messiah
+    description: The Davidic king or the Messiah as God's son in Old Testament texts (e.g. 2Sa 7:14, Ps 2:7).
+  - name: Of Israel
+    description: The nation of Israel (or its people as such) as God's son, sons, or children.
+  - name: Of believers, the elect
+    subtitle: the true Israel
+    description: Believers, the elect, or God's people in the new covenant sense as God's sons or children, born of God, adopted.
+  - name: Of an otherwise unspecified audience
+    subtitle: “your” or “our” Father
+    description: '"Your Father" or "our Father" addressed to an audience not further specified (disciples, readers, church greetings).'
+  - name: Of all men?
+    description: Texts that may present God as Father of all people or all families (a questionable category on the page).
+  - name: Unspecified
+    subtitle: simply “the” Father
+    description: Simply "the Father", with no stated child.
+  - name: Of non–specific or inanimate things
+    description: God as father of non-personal things (rain, lights, mercies, glory) or of classes like the fatherless.
+  - name: Parables
+    description: Parables in which a father or son figure represents God or his people.
+  - name: Allegories
+    description: Similes or allegories comparing God's care to a father's or parent's, or his people to children.

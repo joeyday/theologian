@@ -1,0 +1,30 @@
+title: Eternal
+page: Eternal.md
+intro: Places in Scripture where anything is called “eternal”, “everlasting”, or “forever”.
+criteria: >-
+  Include a verse when it calls some person or thing eternal, everlasting, perpetual, or lasting
+  forever (or "to all generations", "from everlasting to everlasting"), in any grammatical form, or
+  says it will never end. The heading is who or what is said to be eternal. Expressions like
+  "long live the king" or hyperbolic court formulas still count, but categorize them for what they
+  are. Words meaning "of old" or "ancient" count only when they express eternity (e.g. "the eternal
+  God"), not mere antiquity or direction ("east").
+queries:
+  - name: olam (עוֹלָם)
+    strongs: [H5769]
+  - name: ad (עַד, forever)
+    strongs: [H5703]
+  - name: netsach (נֶצַח)
+    strongs: [H5331]
+  - name: qedem (קֶדֶם, of old/eternal)
+    strongs: [H6924, H6927]
+  - name: Aramaic alam (עָלַם)
+    strongs: [H5957]
+  - name: aion (αἰών)
+    strongs: [G0165]
+  - name: aionios (αἰώνιος)
+    strongs: [G0166]
+  - name: aidios (ἀΐδιος)
+    strongs: [G0126]
+  - name: English
+    english: ['\beternal(ly)?\b', '\beverlasting\b', '\bfor ?ever(more)?\b', '\bevermore\b', '\bperpetual(ly)?\b', '\bendless\b', '\bnever (end|cease|pass away|fade)', '\ball generations\b', '\bimperishable\b']
+categories: []
