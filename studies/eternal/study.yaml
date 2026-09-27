@@ -19,12 +19,21 @@ queries:
     strongs: [H6924, H6927]
   - name: Aramaic alam (עָלַם)
     strongs: [H5957]
+  - name: tamid (תָּמִיד, continually)
+    strongs: [H8548]
+  - name: orek yamim (אֹרֶךְ יָמִים, length of days)
+    strongs: [H0753]
+    with: {strongs: [H3117], window: 0}
+  - name: yom in the sense "always" (e.g. kol hayyom, Ge 43:9)
+    strongs: [H3117K]
   - name: aion (αἰών)
     strongs: [G0165]
   - name: aionios (αἰώνιος)
     strongs: [G0166]
   - name: aidios (ἀΐδιος)
     strongs: [G0126]
+  - name: diēnekēs (διηνεκής, perpetual)
+    strongs: [G1336]
   - name: English
     english: ['\beternal(ly)?\b', '\beverlasting\b', '\bfor ?ever(more)?\b', '\bevermore\b', '\bperpetual(ly)?\b', '\bendless\b', '\bnever (end|cease|pass away|fade)', '\ball generations\b', '\bimperishable\b']
 categories: []
