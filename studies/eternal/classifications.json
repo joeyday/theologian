@@ -2,12 +2,11 @@
  "Mal 1:4": {
   "relevant": true,
   "categories": [
-   "Punishment of the wicked",
-   "God’s anger?"
+   "Punishment of the wicked"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "Edom is called a people with whom the LORD is indignant forever—perpetual judgment and a declaration of lasting divine anger.",
+  "rationale": "Edom is called a people with whom the LORD is indignant forever; this is lasting judgment on a nation, though it could also fit 'God’s anger?'.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -129,13 +128,12 @@
  "Ro 9:5": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
    "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Praise is ascribed 'forever' (eis tous aiōnas); BSB reads it as applied to Christ as God, though punctuation could make it a separate doxology to God.",
-  "note": "punctuation disputed; see alternative readings in footnotes",
+  "rationale": "BSB punctuation applies 'God over all, forever worthy of praise' to Christ; alternative punctuation makes it a doxology to God (praise owed him forever).",
+  "note": "see footnote on punctuation",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -314,12 +312,11 @@
  "Ps 105:8": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "God’s word, law, righteousness, salvation"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God remembers his covenant forever, and the word he ordained stands for a thousand generations.",
+  "rationale": "God remembers his covenant forever, the word ordained for a thousand generations—the Abrahamic covenant (v. 9).",
   "note": "cf. 1 Chr 16:15",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -327,12 +324,11 @@
  "Ps 105:10": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "Israel and the land"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The Abrahamic covenant is confirmed to Israel as an everlasting covenant, and its content (v11) is the gift of Canaan.",
+  "rationale": "The covenant with Abraham, Isaac and Jacob is confirmed to Israel as an everlasting covenant; the land promise follows in v. 11 but the everlasting subject is the covenant.",
   "note": "cf. 1 Chr 16:17",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -364,12 +360,11 @@
  "Nu 18:19": {
   "relevant": true,
   "categories": [
-   "Priesthood, statutes, feasts, offerings",
-   "God’s covenants"
+   "Priesthood, statutes, feasts, offerings"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The holy offerings are a permanent statute and 'a permanent covenant of salt before the LORD' for Aaron's offspring.",
+  "rationale": "The priests' portion of holy offerings is a permanent statute and 'permanent covenant of salt' for Aaron's offspring, a priestly portion rather than a major divine covenant.",
   "note": "cf. 2 Chr 13:5",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -461,12 +456,11 @@
  "2Sa 23:5": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "David’s throne and house"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God has made with David an everlasting covenant (berit olam) concerning his house, i.e. the Davidic dynasty promised in 2 Sam 7.",
+  "rationale": "David says God 'has established with me an everlasting covenant', the Davidic covenant; David's house heading is plausible but the covenant is the thing called everlasting.",
   "note": "cf. 2 Sa 7:12–16",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -554,12 +548,11 @@
  "Ps 125:1": {
   "relevant": true,
   "categories": [
-   "Believers, the righteous",
-   "Zion, Jerusalem, the temple"
+   "Believers, the righteous"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Mount Zion abides forever, and those who trust in the LORD are likened to it, so their security is lasting; both the simile's subject and image qualify.",
+  "rationale": "Those trusting the LORD are likened to Zion that abides forever; the point is believers' lasting security, though Zion itself is also said to abide (alternative: Zion heading).",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -603,13 +596,12 @@
  "Ps 18:50": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "David’s throne and house"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "God shows loving devotion (chesed) to his anointed, David and his descendants 'forever'—a lasting commitment to David's line expressed as enduring steadfast love.",
-  "note": "cf. 2 Sam 22:51; 2 Sam 7:15–16",
+  "confidence": "medium",
+  "rationale": "God's loving devotion (hesed) is shown to David and his descendants forever; focus is the Davidic line, though it could be filed under God's steadfast love.",
+  "note": "cf. 2 Sam 22:51",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -628,13 +620,12 @@
  "Jer 31:36": {
   "relevant": true,
   "categories": [
-   "Israel and the land",
-   "Earth, heavens, created order"
+   "Israel and the land"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Israel will never cease to be a nation (\"all the days\") as long as the fixed order of sun, moon and stars endures; both are presented as lasting.",
-  "note": "cf. Jer 33:20–26",
+  "rationale": "Hebrew 'all the days' (kol-hayyamim): Israel's descendants will never cease to be a nation before God, as long as the fixed created order endures.",
+  "note": "Heb. “all the days”; cf. v. 35",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -1224,8 +1215,8 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "\"His ways are everlasting\" ascribes eternity to God's ways; \"ancient (ad) mountains\" and \"perpetual (olam) hills\" use eternity terms, though they crumble before God.",
-  "note": "(the everlasting hills collapse before him)",
+  "rationale": "\"His ways are everlasting\" ascribes eternity to God's ways; separately the \"ancient (ad) mountains\" and \"perpetual (olam) hills\" are called everlasting.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -1358,13 +1349,12 @@
  "Da 7:27": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
    "Believers, the righteous"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "'His kingdom' is everlasting; the antecedent may be the Most High or the people (some translations 'their'), so readers differ.",
-  "note": "some translations 'their kingdom'",
+  "rationale": "The everlasting kingdom is given to the saints; 'His' may refer to the Most High or to the people (Aramaic 'its'), so God's reign or the Son are alternatives.",
+  "note": "cf. Da 7:14, 18",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -1725,13 +1715,12 @@
  "Rev 11:15": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Jesus, the Son"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The kingdom belongs to 'our Lord and his Christ', and 'he will reign forever and ever'. The reign is God's, shared with the Messiah.",
-  "note": "cf. Ps 2:2; Dan 7:14",
+  "confidence": "medium",
+  "rationale": "\"He will reign forever and ever\" follows \"our Lord and of His Christ\"; the singular likely refers to the Lord God (cf. v17), though it could include Christ (Jesus, the Son).",
+  "note": "cf. Ex 15:18; Dan 7:14",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -1772,12 +1761,12 @@
  "1Ki 2:33": {
   "relevant": true,
   "categories": [
-   "Punishment of the wicked",
-   "David’s throne and house"
+   "David’s throne and house",
+   "Punishment of the wicked"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Joab's bloodguilt rests on his descendants forever, while peace from the LORD is promised forever to David's descendants, house, and throne.",
+  "confidence": "medium",
+  "rationale": "Two separate 'forever' statements: blood-guilt on Joab's descendants forever, and peace from the LORD forever for David's house and throne.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -1824,8 +1813,8 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God is called \"King eternal\" (lit. King of the ages), and honor and glory are ascribed to him forever and ever.",
-  "note": "(lit. \"King of the ages\")",
+  "rationale": "God is called 'King eternal' (lit. King of the ages), his being; separately honor and glory are ascribed to him forever and ever.",
+  "note": "lit. “King of the ages”",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -2206,13 +2195,12 @@
  "Rev 1:6": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
    "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Doxology ascribes glory and power forever; antecedent 'To Him' is Jesus Christ (v5), though ascription of divine glory fits the attribute category too.",
-  "note": "doxology to Christ",
+  "rationale": "Doxology ascribes glory and power forever to Jesus Christ, the one who loves us and freed us by his blood (vv. 5–6); could alternatively fit God's glory/power.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -2277,13 +2265,12 @@
  "Jer 17:25": {
   "relevant": true,
   "categories": [
-   "Zion, Jerusalem, the temple",
-   "David’s throne and house"
+   "Zion, Jerusalem, the temple"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Conditional on Sabbath-keeping, Jerusalem will be inhabited forever with Davidic kings on David's throne; the 'forever' attaches explicitly to the city.",
-  "note": "conditionally",
+  "rationale": "The forever statement concerns Jerusalem being inhabited forever, conditional on Sabbath-keeping; David's throne is mentioned but not itself called forever.",
+  "note": "conditional on Sabbath observance",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -2472,26 +2459,24 @@
  "Jn 6:68": {
   "relevant": true,
   "categories": [
-   "Life of believers",
-   "God’s word, law, righteousness, salvation"
+   "Life of believers"
   ],
   "proposed_category": "",
-  "confidence": "medium",
-  "rationale": "Jesus' words convey eternal life; primarily the life given, secondarily his life-giving word (cf. v.63).",
-  "note": "cf. Jn 6:63",
+  "confidence": "high",
+  "rationale": "Peter confesses Jesus has 'the words of eternal life'; the eternal thing is the life given to believers, not the words themselves.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
  "Isa 54:8": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "God’s anger?"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God's 'everlasting kindness' (chesed olam) is set against anger lasting only a moment, so it is an eternal attribute of God and a denial of lasting anger.",
-  "note": "cf. Isa 54:7, 9–10",
+  "rationale": "God's 'everlasting kindness' (chesed olam) is an attribute of God said to be everlasting, contrasted with momentary anger.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -2542,13 +2527,12 @@
  "1Pe 4:11": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Jesus, the Son"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Doxology ascribes glory and power forever; the antecedent of 'to whom' may be God or Jesus Christ, and interpreters are divided on which.",
-  "note": "doxology; antecedent disputed",
+  "rationale": "Doxology ascribes glory and power forever; the antecedent 'to whom' may be God or Jesus Christ, but the ascription is an attribute of divine glory and power.",
+  "note": "doxology; 'to whom' may refer to Christ",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -2668,7 +2652,7 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "'The eternal God' (Elohe qedem) calls God himself eternal, and 'everlasting arms' ascribes lasting power and support to him.",
+  "rationale": "\"The eternal God\" (qedem expressing eternity) names God himself; \"everlasting arms\" separately ascribes lasting power/support to him.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -2808,12 +2792,11 @@
  "Nu 25:13": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
    "Priesthood, statutes, feasts, offerings"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God grants Phinehas a 'covenant of permanent (ʿôlām) priesthood' for him and his descendants; both a divine covenant and a lasting priestly office.",
+  "rationale": "God grants Phinehas and his descendants a 'covenant of permanent (everlasting) priesthood'; the subject is the priestly office, though it is framed as a covenant (alt. God's covenants).",
   "note": "cf. Mal 2:4–5; Ps 106:30–31",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -2882,13 +2865,12 @@
   "relevant": true,
   "categories": [
    "Israel and the land",
-   "Jesus, the Son",
-   "David’s throne and house"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Israel will live in the land forever, and 'My servant David' (the coming Davidic ruler) will be their prince forever.",
-  "note": "cf. Ezek 34:23–24",
+  "confidence": "medium",
+  "rationale": "Two statements: Israel lives in the land forever, and 'My servant David' (the coming ruler) is their prince forever; could alternatively fall under David's throne and house.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -2900,8 +2882,8 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God makes an everlasting covenant of peace and sets his sanctuary among them forever.",
-  "note": "cf. Jer 32:40",
+  "rationale": "God's covenant of peace is called an everlasting covenant; separately, his sanctuary is set among them forever.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3214,13 +3196,12 @@
  "Ps 102:27": {
   "relevant": true,
   "categories": [
-   "God",
-   "Jesus, the Son"
+   "God"
   ],
   "proposed_category": "",
-  "confidence": "medium",
-  "rationale": "God remains the same and his years never end. Hebrews applies vv. 25–27 to the Son, so the Son category is added by that later citation, not by the psalm itself.",
-  "note": "cited at Heb 1:10–12",
+  "confidence": "high",
+  "rationale": "\"Your years will never end\" declares God's own life unending, in contrast to perishing heavens and earth.",
+  "note": "cited at Heb 1:12",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3237,12 +3218,11 @@
  "Lk 21:33": {
   "relevant": true,
   "categories": [
-   "God’s word, law, righteousness, salvation",
-   "Jesus, the Son"
+   "God’s word, law, righteousness, salvation"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Jesus declares his words will never pass away, contrasting them with heaven and earth, which will pass away; his words are thus said to endure forever.",
+  "confidence": "medium",
+  "rationale": "Jesus says his words will never pass away; the words are his, so 'Jesus, the Son' is an alternative, but the subject is the permanence of divine word.",
   "note": "cf. Isa 40:8; Mt 24:35; Mk 13:31",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -3308,13 +3288,12 @@
  "Ps 21:4": {
   "relevant": true,
   "categories": [
-   "Life of believers",
-   "Men, human things?"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The king's life is granted \"length of days, forever and ever\"; this may be court hyperbole for long reign or messianic/eternal life, so readers differ.",
-  "note": "cf. Ps 61:6–7; 1 Kgs 1:31",
+  "rationale": "The king (David) is granted length of days forever and ever, likely referring to perpetual dynasty or enduring life; alternatives: Life of believers, Men (court hyperbole), or messianic.",
+  "note": "cf. 2 Sam 7:16; Ps 61:6–7",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3435,12 +3414,11 @@
  "Isa 55:3": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "David’s throne and house"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God promises an everlasting covenant tied to the steadfast love (chesed) promised to David.",
+  "rationale": "God promises to make an everlasting covenant with his people, identified with the steadfast love promised to David.",
   "note": "cited at Acts 13:34",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -3524,15 +3502,12 @@
   "date": "2026-09-26"
  },
  "Eph 2:7": {
-  "relevant": true,
-  "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Believers, the righteous"
-  ],
+  "relevant": false,
+  "categories": [],
   "proposed_category": "",
-  "confidence": "low",
-  "rationale": "\"In the coming ages\" implies God's grace displayed to believers without end, but the phrase names future ages rather than explicitly calling anything eternal.",
-  "note": "(cf. Eph 3:21, \"to all generations, forever and ever\")",
+  "confidence": "medium",
+  "rationale": "\"The coming ages\" denotes future eras in which grace is displayed, not a statement that anything is eternal or lasts forever.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3629,13 +3604,12 @@
  "Hos 2:19": {
   "relevant": true,
   "categories": [
-   "Israel and the land",
-   "God’s covenants"
+   "Israel and the land"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "God betroths Israel to himself forever, establishing her permanently as his people; the betrothal functions as a covenant bond (cf. v18 covenant), so covenant category plausibly applies too.",
-  "note": "(marriage imagery; cf. v23 “You are My people”)",
+  "rationale": "God betroths Israel (the nation as his wife) to himself forever, establishing her permanently as his people; alternatively God's covenants, since betrothal is covenantal.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3666,13 +3640,12 @@
  "Mic 4:7": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Zion, Jerusalem, the temple"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD will reign over the remnant in Mount Zion from that day and forever.",
-  "note": "cf. Lk 1:33",
+  "confidence": "medium",
+  "rationale": "The LORD's rule over the restored remnant is said to last 'from that day and forever'; located in Mount Zion, so 'Zion, Jerusalem, the temple' is a plausible alternative.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3817,13 +3790,12 @@
  "1Ch 17:14": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "Jesus, the Son"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The son set over God's house and kingdom forever with an eternal throne; the Chronicler's wording ('My kingdom') invites messianic reading, but the primary referent is Solomon/David's line.",
-  "note": "cf. Lk 1:32–33",
+  "rationale": "David's descendant set over God's house and kingdom, his throne established forever; messianic reading (Jesus, the Son) is plausible given 'My son' in v13.",
+  "note": "cf. 2 Sam 7:16; v13 cited at Heb 1:5",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3842,13 +3814,12 @@
  "1Ch 17:23": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "God’s word, law, righteousness, salvation"
+   "David’s throne and house"
   ],
   "proposed_category": "",
-  "confidence": "medium",
-  "rationale": "David prays that God's word concerning his house be established forever; primarily about David's house.",
-  "note": "",
+  "confidence": "high",
+  "rationale": "David prays that God's word concerning his house be established forever; the subject is the dynastic promise.",
+  "note": "cf. 2 Sam 7:25",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -3973,13 +3944,12 @@
  "Ne 9:5": {
   "relevant": true,
   "categories": [
-   "God",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "God"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD is blessed \"from everlasting to everlasting\"; the phrase can modify God himself or the blessing/praise ascribed to him, so both apply.",
-  "note": "cf. Ps 41:13; 106:48; 1 Chr 16:36",
+  "confidence": "medium",
+  "rationale": "\"The LORD your God from everlasting to everlasting\" describes God himself as eternal; could alternatively read as blessing him forever (God's blessedness).",
+  "note": "cf. Ps 41:13; 106:48",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4066,12 +4036,11 @@
  "Isa 9:7": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "David’s throne and house"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "His government will have no end; he reigns on David's throne, establishing it forevermore.",
+  "rationale": "The promised child-ruler's government and peace have no end, and he reigns on David's throne forevermore; the messianic ruler is the subject, though David's throne is secondary.",
   "note": "cf. Lk 1:32–33",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -4237,13 +4206,12 @@
  "Ps 49:11": {
   "relevant": true,
   "categories": [
-   "Punishment of the wicked",
    "Men, human things?"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Graves are called the rich fools' eternal homes for endless generations. This is the lasting fate of the foolish, though it also applies loosely to human dwellings.",
-  "note": "Heb. qirbam 'their inward thought', LXX/Syriac 'their graves'; see footnote",
+  "rationale": "The graves of the rich are called their 'eternal homes'; 'forever' is applied to a merely human fate, not to divine judgment explicitly.",
+  "note": "MT 'their inward thought'; LXX/Syriac read 'their graves'; see ESV footnote",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4384,13 +4352,12 @@
  "Rev 5:13": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Jesus, the Son"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Praise, honor, glory and power ascribed forever and ever to Him on the throne and equally to the Lamb.",
-  "note": "",
+  "confidence": "medium",
+  "rationale": "Doxology ascribes praise, honor, glory and power forever to the One on the throne and the Lamb; the joint ascription could also fit 'Jesus, the Son'.",
+  "note": "to God and the Lamb jointly",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4431,13 +4398,12 @@
  "Ge 17:13": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "Priesthood, statutes, feasts, offerings"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The covenant 'in your flesh' is called everlasting; it is the Abrahamic covenant, but its sign is the ongoing ordinance of circumcision.",
-  "note": "circumcision",
+  "rationale": "The covenant with Abraham, marked in the flesh by circumcision, is called an everlasting covenant; the circumcision ordinance could alternatively fit Priesthood, statutes, feasts, offerings.",
+  "note": "circumcision as its sign",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4490,13 +4456,12 @@
  "Da 2:44": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Jesus, the Son"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The kingdom set up by the God of heaven will never be destroyed and will stand forever; many readers see it as the messianic kingdom (the stone), hence medium confidence.",
-  "note": "cf. Dan 7:14, 27; Lk 1:33",
+  "rationale": "The God of heaven sets up a kingdom that will never be destroyed and stands forever; it is God's kingdom, though the stone is often read messianically (alternative: Jesus, the Son).",
+  "note": "cf. Dan 7:14, 27",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4532,20 +4497,19 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "Darius declares the living God endures forever and that his kingdom and dominion will never be destroyed or end.",
-  "note": "cf. Da 4:3, 34",
+  "rationale": "Darius declares the living God 'endures forever' (God himself), and separately that his kingdom will never be destroyed and dominion never end.",
+  "note": "decree of Darius; cf. Da 4:3, 34",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
  "Jer 10:10": {
   "relevant": true,
   "categories": [
-   "God",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "God"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The LORD is called \"the living God and eternal King\" (melek olam), ascribing eternity to God himself and to his kingship.",
+  "rationale": "The LORD himself is called the living God and 'eternal King' (melek olam), contrasted with perishing idols; his own being is eternal.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -4607,13 +4571,12 @@
  "Ps 9:7": {
   "relevant": true,
   "categories": [
-   "God",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "God"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD abides (sits enthroned) forever, and his throne for judgment is established; his being and reign endure.",
-  "note": "Heb. 'sits enthroned forever'",
+  "confidence": "medium",
+  "rationale": "\"The LORD abides (sits enthroned) forever\" speaks of God himself enduring; the parallel throne clause could suggest the reign heading instead.",
+  "note": "Heb. yashab, 'sits enthroned'",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4690,26 +4653,24 @@
  "Isa 60:19": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Believers, the righteous"
+   "Zion, Jerusalem, the temple"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD will be Zion's 'everlasting light', replacing sun and moon: a lasting blessing to his people from God himself.",
-  "note": "cf. Rev 21:23; 22:5",
+  "confidence": "medium",
+  "rationale": "The LORD becomes Zion's everlasting light; the blessing is addressed to the restored city (v14). Alternative: God's attributes, or 'Believers, the righteous'.",
+  "note": "cf. Rev 21:23",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
  "Isa 60:20": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Believers, the righteous"
+   "Zion, Jerusalem, the temple"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Repeats that the LORD will be 'your everlasting light' and sorrow will cease forever.",
-  "note": "",
+  "confidence": "medium",
+  "rationale": "Repeats the promise that the LORD will be Zion's everlasting light and that her sorrow will end. Alternative: 'Believers, the righteous'.",
+  "note": "cf. Rev 22:5",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4772,13 +4733,12 @@
  "2Sa 7:13": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "Jesus, the Son"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The throne of David's descendant's kingdom is established forever; the NT applies this promise to Christ, though its immediate referent is Solomon.",
-  "note": "cf. 2Sa 7:14 cited at Heb 1:5; Lk 1:32–33",
+  "rationale": "God promises to establish forever the throne of the kingdom of David's descendant; the Davidic dynasty is the immediate subject, though messianic readings (Heb 1:5) suggest 'Jesus, the Son'.",
+  "note": "cf. Heb 1:5; Lk 1:32–33",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -4809,12 +4769,11 @@
  "2Sa 7:25": {
   "relevant": true,
   "categories": [
-   "God’s word, law, righteousness, salvation",
    "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "David asks God to confirm forever his word concerning David's house.",
+  "rationale": "David asks God to confirm forever His word concerning David's house; the subject is the dynastic promise, though 'God's word' is an alternative heading.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -5100,13 +5059,12 @@
  "2Ch 13:5": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "God’s covenants"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The LORD gave the kingship of Israel to David and his descendants forever by a covenant of salt, an enduring covenant grant.",
-  "note": "cf. 2 Sam 7:16; Num 18:19",
+  "rationale": "Abijah declares the LORD gave the kingship of Israel to David and his descendants forever by a covenant of salt; the subject is David's dynasty.",
+  "note": "covenant of salt; cf. Num 18:19",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -5137,13 +5095,12 @@
  "Heb 13:21": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Jesus, the Son"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The doxology ascribes glory forever. \"To whom\" may refer to Jesus Christ, the nearest antecedent, or to God, the subject of the sentence; readers differ.",
-  "note": "doxology",
+  "rationale": "Doxology ascribes glory forever; the antecedent of 'to whom' may be God or Jesus Christ. Taking it as God, it fits God's glory; the alternative is Jesus, the Son.",
+  "note": "antecedent ambiguous: God or Jesus Christ",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -5160,12 +5117,11 @@
  "1Ki 10:9": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Israel and the land"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The queen speaks of the LORD's eternal (ʿolam) love for Israel, an attribute of God directed toward Israel as his people.",
+  "rationale": "The queen speaks of 'the LORD's eternal love for Israel' (lit. love forever), ascribing lasting love to God, an attribute under the steadfast love heading.",
   "note": "cf. 2 Chr 9:8",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -5251,26 +5207,24 @@
  "Ps 106:31": {
   "relevant": true,
   "categories": [
-   "Believers, the righteous",
-   "Priesthood, statutes, feasts, offerings"
+   "Believers, the righteous"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Phinehas's act is credited as righteousness 'to all generations forever', a lasting blessing on a righteous man; it echoes the perpetual priesthood granted him, so the second category is less certain.",
-  "note": "cf. Num 25:13; Gen 15:6",
+  "rationale": "Phinehas's zeal is credited as righteousness 'to all generations forever'—a lasting standing granted a faithful man; alternative: Priesthood (cf. perpetual priesthood covenant, Num 25:13).",
+  "note": "cf. Num 25:13",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
  "Ps 106:48": {
   "relevant": true,
   "categories": [
-   "God",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "God"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD is blessed 'from everlasting to everlasting', which ascribes eternal blessedness to him and implies his eternal being.",
-  "note": "doxology closing Book IV; cf. 1 Chr 16:36",
+  "confidence": "medium",
+  "rationale": "'From everlasting to everlasting' describes the LORD himself; could alternatively be read as his blessedness ascribed forever.",
+  "note": "doxology closing Book IV",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -5282,7 +5236,7 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "Israel is saved with an 'everlasting salvation' and will never be put to shame 'to ages everlasting'—God's salvation plus a lasting blessing on his people.",
+  "rationale": "God saves Israel with an \"everlasting salvation\", and separately promises they will never be put to shame, \"to ages everlasting\".",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -5334,12 +5288,11 @@
  "Ps 119:90": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Earth, heavens, created order"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God's faithfulness continues through all generations, and the earth he established endures.",
+  "rationale": "God's faithfulness is said to continue through all generations; the earth's enduring is secondary and tied to his establishing it.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -5381,12 +5334,11 @@
  "Ps 119:111": {
   "relevant": true,
   "categories": [
-   "Believers, the righteous",
    "God’s word, law, righteousness, salvation"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "God's testimonies are the psalmist's heritage forever.",
+  "confidence": "medium",
+  "rationale": "God's testimonies are the psalmist's heritage forever; could be read as a believer's lasting inheritance, but the subject called lasting is God's testimonies.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -5566,26 +5518,23 @@
  "Ps 89:4": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "God’s covenants"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The sworn covenant with David promises that his offspring will last forever and his throne for all generations.",
-  "note": "cf. 2 Sam 7:16",
+  "rationale": "God swears to establish David's offspring forever and build his throne for all generations.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
  "Ps 89:28": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "God’s covenants",
-   "David’s throne and house"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "God preserves his loving devotion for David forever, and the covenant with him stands fast.",
+  "confidence": "medium",
+  "rationale": "God's loving devotion preserved forever for David is the 'forever' subject; the covenant standing fast is related but not itself called eternal (alternative: God’s covenants).",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -5685,13 +5634,12 @@
  "Joel 3:20": {
   "relevant": true,
   "categories": [
-   "Israel and the land",
    "Zion, Jerusalem, the temple"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Judah will be inhabited forever and Jerusalem from generation to generation, a promise of the land's and city's perpetual habitation.",
-  "note": "cf. v. 17",
+  "confidence": "medium",
+  "rationale": "Judah inhabited forever and Jerusalem to all generations; the parallel pairing fits Zion/Jerusalem best, though 'Israel and the land' is a plausible alternative for Judah.",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -5986,13 +5934,12 @@
  "Ps 72:5": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "Men, human things?"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Royal prayer that the king be feared as long as sun and moon endure, through all generations; a court formula often read messianically.",
-  "note": "royal psalm; read messianically",
+  "rationale": "The king is feared 'through all generations' as long as sun and moon endure; royal psalm widely read messianically, though alternatively a court wish (Men, human things).",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -6009,13 +5956,12 @@
  "Ps 72:17": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "Men, human things?"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The king's name is to endure forever, as long as the sun; this is a court wish, yet it echoes Gen 12:3 and is often read messianically.",
-  "note": "cf. Gen 12:3; 22:18",
+  "rationale": "The king's name endures forever and all nations are blessed in him, echoing the Abrahamic promise; messianic reading fits, alternatively David's house or a royal court wish.",
+  "note": "cf. Gen 22:18",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -6034,25 +5980,23 @@
  "Ps 45:2": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "Men, human things?"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The royal king is blessed by God forever; a court psalm to a human king, read messianically in Hebrews 1 for this psalm.",
-  "note": "cf. Heb 1:8–9",
+  "rationale": "The king addressed is blessed forever; read with v6–7 (cited of the Son in Hebrews) as the messianic king; alternatively a Davidic king (David's throne and house).",
+  "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
  "Ps 45:6": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The throne addressed as 'O God' endures forever; Hebrews applies it to the Son.",
+  "rationale": "The king's throne, addressed as 'O God', endures forever and ever; Hebrews applies this to the Son.",
   "note": "cited at Heb 1:8",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -6060,12 +6004,11 @@
  "Ps 45:17": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "Men, human things?"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The king's name is remembered through all generations and praised forever; royal hyperbole, or messianic if the psalm's king is the Messiah.",
+  "rationale": "The king's name is commemorated through all generations and praised forever; messianic reading of the psalm, though it could be read as a royal court formula.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -6817,12 +6760,11 @@
  "1Ch 16:15": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "God’s word, law, righteousness, salvation"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The covenant is to be remembered forever, and the word is ordained for a thousand generations.",
+  "rationale": "Israel is to remember God's covenant forever, the word ordained for a thousand generations, i.e. the Abrahamic covenant (v16).",
   "note": "cf. Ps 105:8",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -6830,12 +6772,11 @@
  "1Ch 16:17": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "Israel and the land"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "This is the everlasting covenant with Israel, whose content is the land of Canaan as an inheritance (v18).",
+  "rationale": "The covenant with Abraham, confirmed to Jacob, is called an everlasting covenant; the land promise follows in v18.",
   "note": "cf. Ps 105:10",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -6855,12 +6796,11 @@
  "1Ch 16:36": {
   "relevant": true,
   "categories": [
-   "God",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "God"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD is blessed \"from everlasting to everlasting\", a formula for God's eternity and the praise ascribed to him forever.",
+  "confidence": "medium",
+  "rationale": "'From everlasting to everlasting' qualifies the LORD being blessed. It could be read as praise ascribed forever (the attribute heading), but it points to God's eternity.",
   "note": "cf. Ps 106:48",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -6900,12 +6840,11 @@
  "1Jn 5:11": {
   "relevant": true,
   "categories": [
-   "Life of believers",
-   "Jesus, the Son"
+   "Life of believers"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God gives believers eternal life, and this life is located in His Son.",
+  "rationale": "God has given us eternal life, located in his Son; life given to believers is called eternal.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -6925,13 +6864,12 @@
  "1Jn 5:20": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "God"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "\"He is the true God and eternal life\" identifies a person as eternal life. The referent (Jesus Christ or the Father) is debated, so the verse is listed under both.",
-  "note": "cf. 1 Jn 1:2",
+  "rationale": "\"He is the true God and eternal life\" most naturally refers to Jesus Christ, just named (cf. 1:2); some refer it to the Father, which would suggest the God heading.",
+  "note": "cf. 1Jn 1:2",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -7066,12 +7004,11 @@
  "Ps 78:69": {
   "relevant": true,
   "categories": [
-   "Zion, Jerusalem, the temple",
-   "Earth, heavens, created order"
+   "Zion, Jerusalem, the temple"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "The sanctuary on Zion is built like the earth, which God established forever. Grammatically \"forever\" attaches to the earth, but the simile implies a lasting sanctuary.",
+  "rationale": "The sanctuary on Zion is built to last like the earth God founded forever; 'forever' grammatically modifies the earth, but the simile makes the sanctuary's permanence the point.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -7189,13 +7126,12 @@
  "1Jn 1:2": {
   "relevant": true,
   "categories": [
-   "Jesus, the Son",
-   "Life of believers"
+   "Jesus, the Son"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "\"The eternal life that was with the Father and was revealed\" personifies the Word of life (v1), i.e. the Son; it is also the life proclaimed to believers.",
-  "note": "cf. Jn 1:1–4; 1Jn 5:20",
+  "rationale": "\"The eternal life that was with the Father and was revealed\" personifies the Word of life (v.1), i.e. the Son; alternatively Life of believers.",
+  "note": "cf. Jn 1:1–4; 1 Jn 5:20",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -7302,12 +7238,11 @@
  "Ps 133:3": {
   "relevant": true,
   "categories": [
-   "Life of believers",
-   "Zion, Jerusalem, the temple"
+   "Life of believers"
   ],
   "proposed_category": "",
-  "confidence": "medium",
-  "rationale": "The LORD bestows 'life forevermore' as a blessing on Zion; primarily everlasting life given by God, with Zion as its locus.",
+  "confidence": "high",
+  "rationale": "The LORD commands on Zion 'the blessing of life forevermore'—life God gives described as everlasting; Zion is the place, not the thing called eternal.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -7325,13 +7260,12 @@
  "Isa 65:18": {
   "relevant": true,
   "categories": [
-   "Believers, the righteous",
-   "Zion, Jerusalem, the temple"
+   "Believers, the righteous"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "God's people are to rejoice forever in the new creation, and Jerusalem is created as a joy. The perpetuity attaches to the rejoicing, so the Jerusalem category is secondary.",
-  "note": "cf. new heavens and new earth, v. 17",
+  "rationale": "God's people are told to rejoice forever in his new creation; lasting joy promised to his people. Alternative: Zion, Jerusalem, since Jerusalem is created a joy.",
+  "note": "cf. Isa 65:17; Rev 21:1–4",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -7474,13 +7408,12 @@
  "Heb 10:14": {
   "relevant": true,
   "categories": [
-   "Believers, the righteous",
-   "Jesus, the Son"
+   "Believers, the righteous"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Those being sanctified are made perfect 'for all time' by Christ's single offering, so their lasting perfection is a blessing on believers that rests on his permanent work.",
-  "note": "",
+  "confidence": "medium",
+  "rationale": "Believers are made perfect 'for all time' (eis to diēnekes) by Christ's single offering, a lasting benefit to God's people; alternatively Jesus' perpetual sacrifice/priesthood.",
+  "note": "cf. Heb 10:12",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -7911,13 +7844,12 @@
  "2Sa 22:51": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
    "David’s throne and house"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "God's loving devotion (hesed) is shown to David and his descendants forever, tying his enduring steadfast love to David's line.",
-  "note": "parallel Ps 18:50",
+  "confidence": "medium",
+  "rationale": "God's loving devotion (hesed) shown to David and his descendants forever echoes the dynastic promise; alternatively 'God's steadfast love' heading, since hesed is the subject.",
+  "note": "cf. Ps 18:50; 2 Sa 7:15–16",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -8081,8 +8013,8 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "Resurrection to 'everlasting life' for some and 'everlasting contempt' for others; both eternal destinies explicitly named.",
-  "note": "",
+  "rationale": "The verse makes two distinct statements: some awake to everlasting life, others to everlasting shame and contempt, each squarely under a different heading.",
+  "note": "cf. Jn 5:29; Mt 25:46",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -8147,12 +8079,11 @@
  "Ps 48:14": {
   "relevant": true,
   "categories": [
-   "God",
-   "Believers, the righteous"
+   "God"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "This God is our God forever and ever. The verse stresses God's lasting relationship to his people, not merely his eternal being, so both categories fit.",
+  "rationale": "\"This God is our God forever and ever\" declares God's enduring identity as his people's God; could alternatively fit God's covenant relationship or believers' security.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -8238,13 +8169,11 @@
  "Isa 59:21": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "The Spirit",
-   "God’s word, law, righteousness, salvation"
+   "God’s covenants"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "God's covenant promises his Spirit and his words will not depart from his people and their descendants 'from now on and forevermore'.",
+  "confidence": "medium",
+  "rationale": "The LORD declares 'this is My covenant' that His Spirit and words will not depart from His people forevermore; alternatives: The Spirit or God's word.",
   "note": "cf. Rom 11:26–27",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -8425,8 +8354,8 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God is praised as 'Him who lives forever,' and his dominion is called everlasting, his kingdom enduring through generations.",
-  "note": "cf. Da 7:14; 6:26",
+  "rationale": "Nebuchadnezzar honors \"Him who lives forever\" (God's own life) and separately declares His dominion everlasting, enduring from generation to generation.",
+  "note": "cf. Da 4:3",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -8541,12 +8470,11 @@
  "1Pe 5:10": {
   "relevant": true,
   "categories": [
-   "Believers, the righteous",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "Believers, the righteous"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Believers are called to God's 'eternal glory in Christ'. The glory is God's own, but it is shared with the called, so both categories fit.",
+  "rationale": "Believers are called to 'His eternal glory in Christ', a lasting blessing shared by God's people; alternatively it could be read as God's own glory.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -8578,13 +8506,12 @@
  "Mk 13:31": {
   "relevant": true,
   "categories": [
-   "God’s word, law, righteousness, salvation",
-   "Jesus, the Son"
+   "God’s word, law, righteousness, salvation"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "Jesus declares his words will never pass away, outlasting heaven and earth; the enduring words are the Son's, so both word and Son categories apply.",
-  "note": "cf. Isa 40:8; par. Mt 24:35; Lk 21:33",
+  "confidence": "medium",
+  "rationale": "Jesus' words 'will never pass away' are said to endure forever; they are the divine word, though one could file this under Jesus, the Son.",
+  "note": "cf. Isa 40:8",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -8745,13 +8672,12 @@
  "Lk 1:55": {
   "relevant": true,
   "categories": [
-   "God’s covenants",
-   "Israel and the land"
+   "God’s covenants"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "God's merciful promise to Abraham and his descendants is remembered forever; 'forever' may modify the mercy or the descendants.",
-  "note": "cf. Gen 17:7; Mic 7:20",
+  "rationale": "God's merciful promise to Abraham and his descendants is said to hold forever, echoing the Abrahamic covenant; alternatively God's steadfast love (mercy) toward Israel.",
+  "note": "cf. Lk 1:72–73",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -9206,12 +9132,11 @@
  "Mt 24:35": {
   "relevant": true,
   "categories": [
-   "God’s word, law, righteousness, salvation",
-   "Jesus, the Son"
+   "God’s word, law, righteousness, salvation"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "Jesus says his words will never pass away, unlike heaven and earth; his word is declared everlasting.",
+  "rationale": "Jesus says his words will never pass away, contrasting their permanence with heaven and earth's passing; his words function as God's enduring word.",
   "note": "cf. Isa 40:8; Mk 13:31; Lk 21:33",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -9387,13 +9312,12 @@
  "Ps 41:13": {
   "relevant": true,
   "categories": [
-   "God",
    "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
-  "confidence": "high",
-  "rationale": "The LORD is blessed 'from everlasting to everlasting', a doxology closing Book I that ascribes eternal blessedness to God himself.",
-  "note": "doxology closing Book I of Psalms",
+  "confidence": "medium",
+  "rationale": "Doxology ascribing blessing to the LORD from everlasting to everlasting; could alternatively be read as describing God himself as eternal.",
+  "note": "doxology closing Book I",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -9650,13 +9574,12 @@
  "2Ch 21:7": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "God’s covenants"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God promised to maintain a lamp for David and his descendants forever, grounded in the covenant made with David.",
-  "note": "cf. 2 Sam 7:16; 1 Ki 11:36; 2 Ki 8:19",
+  "rationale": "God promised to maintain a lamp for David and his descendants forever, grounded in his covenant with David; the lamp of David's house is the subject.",
+  "note": "cf. 2 Ki 8:19",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -10015,12 +9938,11 @@
  "1Ti 6:16": {
   "relevant": true,
   "categories": [
-   "God",
    "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "God alone is immortal, and eternal dominion is ascribed to him in a doxology.",
+  "rationale": "Doxology ascribes \"eternal dominion\" (kratos aiōnion) to God, an attribute of his reign; \"alone is immortal\" also describes God's being but the matched word is dominion.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -10067,8 +9989,8 @@
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The same adjective, aiōnios, describes both the punishment of the wicked and the life given to the righteous.",
-  "note": "",
+  "rationale": "The verse makes two parallel statements: the wicked go into eternal punishment, and the righteous into eternal life, each squarely under a different heading.",
+  "note": "cf. v. 41, “eternal fire”",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -10289,12 +10211,11 @@
  "Ps 93:2": {
   "relevant": true,
   "categories": [
-   "God",
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
+   "God"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "\"You are from all eternity\" (me'olam) calls God himself eternal; his throne established of old accompanies it.",
+  "rationale": "\"You are from all eternity\" (me'olam attah) declares God's own being eternal; the throne clause 'long ago' is antiquity, supporting but secondary.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -10326,12 +10247,11 @@
  "Ps 61:6": {
   "relevant": true,
   "categories": [
-   "Men, human things?",
    "David’s throne and house"
   ],
   "proposed_category": "",
-  "confidence": "medium",
-  "rationale": "A wish that the king's years span 'generation and generation' resembles a 'long live the king' formula, possibly with Davidic or messianic overtones.",
+  "confidence": "low",
+  "rationale": "\"May his years span many generations\" (lit. generation and generation) prays for the king's enduring life; could also be read as a court wish (Men, human things).",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
@@ -10339,13 +10259,12 @@
  "Ps 61:7": {
   "relevant": true,
   "categories": [
-   "David’s throne and house",
-   "Men, human things?"
+   "David’s throne and house"
   ],
   "proposed_category": "",
   "confidence": "medium",
-  "rationale": "Prayer that the (Davidic) king sit enthroned before God forever; royal court formula, often read messianically, so the categorization is debatable.",
-  "note": "Targum reads messianically",
+  "rationale": "Prayer that David's king be enthroned before God forever, under God's steadfast love; alternatively messianic (Jesus, the Son) or a royal court wish.",
+  "note": "(cf. 2 Sam 7:16)",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
  },
@@ -10386,12 +10305,11 @@
  "Ps 103:17": {
   "relevant": true,
   "categories": [
-   "God’s name, reign, power, divinity, ways, steadfast love, blessedness",
-   "Believers, the righteous"
+   "God’s name, reign, power, divinity, ways, steadfast love, blessedness"
   ],
   "proposed_category": "",
   "confidence": "high",
-  "rationale": "The LORD's loving devotion is 'from everlasting to everlasting' toward those who fear him, an eternal attribute that is also a lasting blessing to the faithful.",
+  "rationale": "The LORD's steadfast love (hesed) is said to extend 'from everlasting to everlasting' to those who fear him, in contrast with man's grass-like transience.",
   "note": "",
   "model": "claude-opus-5-5",
   "date": "2026-09-26"
