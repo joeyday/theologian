@@ -82,3 +82,13 @@ def test_draft_respects_exclusions(tmp_path):
     (s.dir / "decisions.yaml").write_text("exclude:\n  - ref: Isa 63:16–17\n")
     out = draft(s, parse_page(PAGE), corpus(), CLS).render()
     assert "Isa 63" not in out
+
+
+def test_audit_surfaces_extra_categories(tmp_path):
+    s = study(tmp_path)
+    page = parse_page(PAGE.replace("### Allegories\nPs 103:13", "### Allegories\nPs 103:13; Hos 11:1"))
+    cls = CLS | {"Hos 11:1": c(True, ["Of Israel", "Allegories", "Of Jesus"])}
+    a = audit(s, page, corpus(), {("Hos", 11, 1), ("Mal", 1, 6), ("Ps", 103, 13)}, cls)
+    # Hos 11:1 is listed under Israel and Allegories, so only "Of Jesus" is extra, reported once
+    extras = [(title, str(i.ref), e) for title, i, e, _ in a.also]
+    assert extras == [("Of Israel", "Hos 11:1", {"Of Jesus": ["Hos 11:1"]})]

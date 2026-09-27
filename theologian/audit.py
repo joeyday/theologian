@@ -54,6 +54,8 @@ class Audit:
     missing: list[tuple[str, dict]] = field(default_factory=list)  # (ref, classification) relevant, not on page
     not_relevant: list[tuple[str, Item, list[dict]]] = field(default_factory=list)  # (section, item, results)
     other_category: list[tuple[str, Item, set[str], list[dict]]] = field(default_factory=list)
+    # agreed entries where the model also put some verse(s) in categories the page doesn't list them under
+    also: list[tuple[str, Item, dict[str, list[str]], list[dict]]] = field(default_factory=list)
     not_found: list[tuple[str, Item]] = field(default_factory=list)  # search never reached it
     unclassified: list[tuple[str, Item]] = field(default_factory=list)  # found but not yet classified
     agreed: int = 0
@@ -69,6 +71,7 @@ def audit(study: Study, page: Page, corpus: Corpus, candidates: set[Verse], cls:
         if c["relevant"] and v not in on_page and v not in skip:
             a.missing.append((ref, c))
     names = {c.name for c in study.categories}
+    reported: set[tuple[Verse, str]] = set()  # (verse, extra category) already listed under `also`
     for sec in page.sections():
         title = sec.heading.title if sec.heading else ""
         if title not in names:
@@ -89,6 +92,17 @@ def audit(study: Study, page: Page, corpus: Corpus, candidates: set[Verse], cls:
             cats = {c for r in relevant for c in r["categories"]}
             if title in cats:
                 a.agreed += 1
+                extra: dict[str, list[str]] = {}  # category -> verses the model put there
+                for v in verses:
+                    r = cls.get(vref(v))
+                    if r and r["relevant"]:
+                        for cat in r["categories"]:
+                            if cat not in on_page.get(v, []) and (v, cat) not in reported:
+                                reported.add((v, cat))
+                                extra.setdefault(cat, []).append(vref(v))
+                if extra:
+                    why = [cls[x] for vs in extra.values() for x in vs]
+                    a.also.append((title, item, extra, why))
             else:
                 a.other_category.append((title, item, cats, relevant))
     return a
@@ -104,7 +118,8 @@ def report(study: Study, a: Audit) -> str:
     lines = [f"# Audit: {study.title}", ""]
     lines.append(f"Of {n_items} classified page entries, the model agrees with {a.agreed}, "
                  f"puts {len(a.other_category)} in a different category, and judges "
-                 f"{len(a.not_relevant)} not relevant. It suggests {len(a.missing)} verses not on the page. "
+                 f"{len(a.not_relevant)} not relevant. Of those it agrees with, {len(a.also)} also belong "
+                 f"in another category by its reading. It suggests {len(a.missing)} verses not on the page. "
                  f"{len(a.not_found)} page entries were never reached by the search; "
                  f"{len(a.unclassified)} were found but not yet classified.")
     lines += ["", "Judgments were made blind: the model never saw the page's categories.", ""]
@@ -126,6 +141,12 @@ def report(study: Study, a: Audit) -> str:
     lines += [f"## Different category ({len(a.other_category)})", ""]
     for title, item, cats, results in a.other_category:
         lines.append(f"- **{item.ref}** — page: {title}; model: {', '.join(sorted(cats))}. {_why(results)}")
+    lines += ["", f"## Also suggested for another category ({len(a.also)})", "",
+              "The model agrees with your placement but also puts these verses under a heading "
+              "where the page doesn't list them.", ""]
+    for title, item, extra, results in a.also:
+        adds = "; ".join(f"{cat} ({', '.join(vs)})" for cat, vs in extra.items())
+        lines.append(f"- **{item.ref}** — page: {title}; also: {adds}. {_why(results)}")
     lines += ["", f"## Judged not relevant ({len(a.not_relevant)})", "",
               "Includes entries whose verses the model read as context rather than the point itself.", ""]
     for title, item, results in a.not_relevant:
