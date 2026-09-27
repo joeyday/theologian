@@ -73,10 +73,10 @@ def test_draft_adds_flagged_ranges_and_new_sections(tmp_path):
     s = study(tmp_path)
     cls = CLS | {"Hos 11:3": c(True, ["Of Jesus"], note="cf. Mt 2:15")}
     out = draft(s, parse_page(PAGE), corpus(), cls).render()
-    assert "### Of Israel\nIsa 63:16–17 %% new (low): because %%; Hos 11:1; Mal 1:6\n" in out
-    assert "### Allegories\nPs 103:13; Mal 1:6 %% new (high): because %%\n" in out
+    assert "### Of Israel\nIsa 63:16–17%% new (low): because %%; Hos 11:1; Mal 1:6\n" in out
+    assert "### Allegories\nPs 103:13; Mal 1:6%% new (high): because %%\n" in out
     # a legacy free-form "cf." note is not a house-style note: it goes into the comment
-    assert "### Of Jesus\nHos 11:3 %% new (high): because Remark: cf. Mt 2:15 %%\n## See also" in out
+    assert "### Of Jesus\nHos 11:3%% new (high): because Remark: cf. Mt 2:15 %%\n## See also" in out
     # everything else untouched
     assert out.startswith("---\ndraft: true\n---\nIntro.\n### Of Israel\n")
 
@@ -136,15 +136,15 @@ def test_structured_notes_in_house_style(tmp_path):
     cls = {"Hos 11:1": c(True, ["Of Israel"], cited_at="Matt. 2:15"),
            "Mal 1:6": c(True, ["Of Israel"], parallels="1 Chr 16:15", esv_footnote=True)}
     line = _section(tmp_path, cls)
-    assert line == ("Hos 11:1 ~(cited at Mt 2:15)~ %% new (high): because %%; "
-                    "Mal 1:6 ~(cf. 1Ch 16:15)~ ~(see ESV footnote)~ %% new (high): because %%")
+    assert line == ("Hos 11:1 ~(cited at Mt 2:15)~%% new (high): because %%; "
+                    "Mal 1:6 ~(cf. 1Ch 16:15)~ ~(see ESV footnote)~%% new (high): because %%")
 
 
 def test_cf_to_a_listed_verse_is_dropped(tmp_path):
     # Joey's example: "Ge 13:15 (cf. Ge 17:8); Ge 17:8" -- here Hos 11:1 is already on the page
     cls = {"Mal 1:6": c(True, ["Of Israel"], parallels="Hos 11:1")}
     line = _section(tmp_path, cls, "### Of Israel\nHos 11:1\n")
-    assert line == "Hos 11:1; Mal 1:6 %% new (high): because %%"
+    assert line == "Hos 11:1; Mal 1:6%% new (high): because %%"
 
 
 def test_new_parallels_fold_into_the_first(tmp_path):
@@ -152,7 +152,7 @@ def test_new_parallels_fold_into_the_first(tmp_path):
            "Mal 1:6": c(True, ["Of Israel"], parallels="Hos 11:1; Isa 63:16"),
            "Isa 63:16": c(True, ["Of Israel"])}
     line = _section(tmp_path, cls)
-    assert line == ("Isa 63:16 ~(cf. Hos 11:1; Mal 1:6)~ %% new (high): because "
+    assert line == ("Isa 63:16 ~(cf. Hos 11:1; Mal 1:6)~%% new (high): because "
                     "(parallels folded in: Hos 11:1; Mal 1:6) %%")
 
 

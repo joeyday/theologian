@@ -28,7 +28,7 @@ def cmd_lint(args) -> int:
     for f in shown:
         print(f)
     counts = Counter(f.kind for f in findings)
-    print("\n" + ", ".join(f"{k}: {v}" for k, v in counts.most_common()) or "no findings")
+    print("\n" + (", ".join(f"{k}: {v}" for k, v in counts.most_common()) or "no findings"))
     return 1 if any(f.kind == "unexplained" for f in findings) else 0
 
 
