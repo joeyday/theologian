@@ -22,3 +22,11 @@ def test_topic_page_round_trips(path):
 
 def load_and_lint(path):
     return lint_page(load_page(path))
+
+
+@pytest.mark.skipif(not PATHS, reason="vault not available")
+@pytest.mark.parametrize("path", PATHS, ids=lambda p: p.name)
+def test_topic_page_round_trips_with_embeds_expanded(path):
+    from theologian.vault import load_expanded
+
+    assert load_expanded(path).render() == path.read_text(encoding="utf-8")

@@ -51,9 +51,10 @@ def _load_classifications(study) -> dict:
 
 
 def _page(study):
-    from .sitemd import load_page
+    """The study's vault page, with embedded partials expanded for reading."""
+    from .vault import load_expanded
 
-    return load_page(study.page_path) if study.page_path and study.page_path.exists() else None
+    return load_expanded(study.page_path) if study.page_path and study.page_path.exists() else None
 
 
 def cmd_fetch_data(args) -> int:

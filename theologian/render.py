@@ -15,7 +15,7 @@ from .audit import excluded, page_verses
 from .corpus import Corpus, Verse
 from .notes import Notes, notes_of
 from .refs import BOOK_INDEX, Ref, parse_ref
-from .sitemd import Annotation, Heading, Item, Page, Raw, RefLine
+from .sitemd import Annotation, Embed, Heading, Item, Page, Raw, RefLine, flat_lines
 from .study import Study
 
 RANK = {"high": 2, "medium": 1, "low": 0}
@@ -82,13 +82,15 @@ def additions(study: Study, page: Page | None, corpus: Corpus, cls: dict[str, di
     return out
 
 
-def tidy(existing: list[Item], entries: list[Entry], counts) -> list[Item]:
+def tidy(existing: list[Item], entries: list[Entry], counts, also_listed: list[Item] = ()) -> list[Item]:
     """Merge a section's existing items with new entries, removing redundancy:
     a cf. pointing at a verse already listed in the section is dropped, and new
     entries that are parallels of each other fold into the canonically first,
-    which lists the rest as cf. (the page's convention)."""
+    which lists the rest as cf. (the page's convention). `also_listed` are the
+    section's entries that live elsewhere (an embedded partial): they count as
+    listed but aren't returned."""
     entries = sorted(entries, key=lambda e: e.ref.sort_key())
-    listed = {v for i in existing for v in i.ref.verses(counts)}
+    listed = {v for i in [*existing, *also_listed] for v in i.ref.verses(counts)}
     owner: dict[Verse, int] = {}
     for k, e in enumerate(entries):
         for v in e.ref.verses(counts):
@@ -154,11 +156,22 @@ def draft(study: Study, page: Page | None, corpus: Corpus, cls: dict[str, dict],
                         existing.extend(lines[j].items)
                     j += 1
                 block = lines[i:j]
+                # Entries embedded from a partial count as listed, but the
+                # partial itself is never rewritten or inlined.
+                embeds = [l for l in block if isinstance(l, Embed)]
+                embedded = [it for e in embeds for l in flat_lines(e.lines) if isinstance(l, RefLine)
+                            for it in l.items]
+                merged = RefLine(tidy(existing, adds[title], corpus.verse_counts, embedded))
                 ref_idx = [k for k, l in enumerate(block) if isinstance(l, RefLine)]
-                merged = RefLine(tidy(existing, adds[title], corpus.verse_counts))
                 if ref_idx:
                     block = [l for k, l in enumerate(block) if not isinstance(l, RefLine) or k == ref_idx[0]]
                     block[ref_idx[0]] = merged
+                elif embeds:
+                    at = max(k for k, l in enumerate(block) if isinstance(l, Embed)) + 1
+                    names = ", ".join(f'"{e.name}"' for e in embeds)
+                    note = Raw(f"%% new entries for this section; the entries above are embedded from {names}. "
+                               f"Move any you accept into the partial, or keep them here for this page only. %%")
+                    block[at:at] = [note, merged]
                 else:
                     block = [merged] + block
                 out.extend(block)

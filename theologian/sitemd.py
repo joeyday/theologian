@@ -100,15 +100,17 @@ class Item:
 class Heading:
     level: int
     text: str
+    resolved: str | None = None  # text with inline embeds expanded (see expand_embeds)
 
     @property
     def title(self) -> str:
-        m = SUBTITLE_RE.match(self.text)
-        return m[1] if m else self.text
+        text = self.resolved or self.text
+        m = SUBTITLE_RE.match(text)
+        return m[1] if m else text
 
     @property
     def subtitle(self) -> str | None:
-        m = SUBTITLE_RE.match(self.text)
+        m = SUBTITLE_RE.match(self.resolved or self.text)
         return m[2] if m else None
 
     def render(self) -> str:
@@ -133,7 +135,30 @@ class Raw:
         return self.text
 
 
-Line = Heading | RefLine | Raw
+@dataclass
+class Embed:
+    """A whole-line embed like {{[[god-eternity]]}}, with the embedded page's
+    lines (expanded recursively). Renders as the embed line itself, so pages
+    round-trip; readers see through it to the embedded refs."""
+
+    text: str
+    name: str
+    lines: list  # list[Line]
+
+    def render(self) -> str:
+        return self.text
+
+
+Line = Heading | RefLine | Raw | Embed
+
+
+def flat_lines(lines: list[Line]):
+    """Lines with embeds replaced by their contents, recursively."""
+    for line in lines:
+        if isinstance(line, Embed):
+            yield from flat_lines(line.lines)
+        else:
+            yield line
 
 
 @dataclass
@@ -160,7 +185,7 @@ class Page:
     def sections(self) -> list[Section]:
         """Items grouped under the nearest preceding heading."""
         out = [Section(None, [])]
-        for line in self.lines:
+        for line in flat_lines(self.lines):
             if isinstance(line, Heading):
                 out.append(Section(line, []))
             elif isinstance(line, RefLine):
@@ -364,3 +389,71 @@ def parse_page(text: str, path: Path | None = None) -> Page:
 def load_page(path: str | Path) -> Page:
     path = Path(path)
     return parse_page(path.read_text(encoding="utf-8"), path)
+
+
+# ── Embeds (partials) ────────────────────────────────────────────────────────
+
+EMBED_RE = re.compile(r"\{\{([^}|]+?)(?:\|([^}]*))?\}\}")
+
+
+def _embed_args(args: str | None) -> list[str]:
+    """Split embed arguments on | outside [[links]] (as build.js does)."""
+    if not args:
+        return []
+    out, cur, depth, i = [], "", 0, 0
+    while i < len(args):
+        if args.startswith("[[", i):
+            depth, cur, i = depth + 1, cur + "[[", i + 2
+        elif args.startswith("]]", i):
+            depth, cur, i = depth - 1, cur + "]]", i + 2
+        elif args[i] == "|" and depth == 0:
+            out.append(cur.strip())
+            cur, i = "", i + 1
+        else:
+            cur, i = cur + args[i], i + 1
+    out.append(cur.strip())
+    return out
+
+
+def _embed_name(raw: str) -> str:
+    return raw.strip().removeprefix("[[").removesuffix("]]").strip()
+
+
+def _fill(body: str, args: list[str]) -> str:
+    for n, a in enumerate(args, 1):
+        body = body.replace(f"{{{{{n}}}}}", a)
+    body = re.sub(r"\{\{\d+\}\}", "", body)
+    return body.replace("{{$args}}", ", ".join(args)).replace("{{$n}}", str(len(args)))
+
+
+def _resolve_inline(text: str, resolve, seen: frozenset) -> str:
+    def sub(m):
+        name = _embed_name(m[1])
+        body = resolve(name) if name.lower() not in seen else None
+        if body is None:
+            return m[0]
+        body = _fill("\n".join(l.render() for l in parse_page(body).lines).strip(), _embed_args(m[2]))
+        return _resolve_inline(body, resolve, seen | {name.lower()})
+    return EMBED_RE.sub(sub, text)
+
+
+def expand_embeds(page: Page, resolve, _seen: frozenset = frozenset()) -> Page:
+    """A copy of `page` in which whole-line embeds become Embed lines holding
+    the embedded content, and headings get their inline embeds resolved.
+    `resolve(name)` returns a vault file's text (or None). Rendering the result
+    gives back the original page."""
+    out: list[Line] = []
+    for line in page.lines:
+        if isinstance(line, Raw) and (m := EMBED_RE.fullmatch(line.text.strip())):
+            name = _embed_name(m[1])
+            body = resolve(name) if name.lower() not in _seen and not name.isdigit() else None
+            if body is not None:
+                inner = parse_page(body)
+                inner = parse_page(_fill("\n".join(l.render() for l in inner.lines), _embed_args(m[2])) + "\n")
+                inner = expand_embeds(inner, resolve, _seen | {name.lower()})
+                out.append(Embed(line.text, name, inner.lines))
+                continue
+        if isinstance(line, Heading) and EMBED_RE.search(line.text):
+            line = Heading(line.level, line.text, _resolve_inline(line.text, resolve, _seen))
+        out.append(line)
+    return Page(page.frontmatter_raw, out, page.trailing_newline, page.path)

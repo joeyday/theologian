@@ -162,3 +162,33 @@ def test_note_ref_parsing():
 
     assert render_items(parse_refs("2 Sam 22:51 and Deut. 13:16")) == "2Sa 22:51; Dt 13:16"
     assert parse_refs("the land promise in v. 11") is None
+
+
+def test_embedded_partial_counts_as_listed_and_is_kept(tmp_path):
+    from theologian.render import draft
+    from theologian.sitemd import expand_embeds
+
+    partials = {"israel-list": "---\nhidden: true\n---\nHos 11:1; Mal 1:6\n"}
+    page = expand_embeds(parse_page("### Of Israel\n{{[[israel-list]]}}\n### Allegories\nPs 103:13\n"),
+                         partials.get)
+    s = study(tmp_path)
+    cls = {"Hos 11:1": c(True, ["Of Israel"]), "Isa 63:16": c(True, ["Of Israel"])}
+    out = draft(s, page, corpus(), cls).render()
+    # Hos 11:1 is in the partial, so it isn't re-added; the embed line survives untouched
+    assert out.startswith("### Of Israel\n{{[[israel-list]]}}\n%% new entries for this section; "
+                          'the entries above are embedded from "israel-list".')
+    assert "\nIsa 63:16%% new (high): because %%\n### Allegories" in out
+    assert "Hos 11:1%%" not in out
+    # the audit sees the partial's entries as on the page
+    a = audit(s, page, corpus(), {("Hos", 11, 1), ("Isa", 63, 16)}, cls)
+    assert a.agreed == 1 and [r for r, _ in a.missing] == ["Isa 63:16"]
+
+
+def test_heading_partials_resolve():
+    from theologian.sitemd import expand_embeds
+
+    partials = {"israel-heading": "---\nhidden: true\n---\nOf Israel ~(the nation)~\n"}
+    page = expand_embeds(parse_page("### {{[[israel-heading]]}}\nHos 11:1\n"), partials.get)
+    (sec,) = page.sections()
+    assert (sec.heading.title, sec.heading.subtitle) == ("Of Israel", "the nation")
+    assert page.render() == "### {{[[israel-heading]]}}\nHos 11:1\n"
