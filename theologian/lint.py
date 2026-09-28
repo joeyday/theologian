@@ -53,6 +53,10 @@ def lint_items(items: list[Item]) -> list[tuple[str, str]]:
             want = ", " if form == "verses" else "; "
             if item.sep_before.strip() != want.strip():
                 out.append(("separator", f"{item.sep_before.strip()!r} before {src!r}; expected {want.strip()!r}"))
+            elif item.lead:
+                canonical = want.strip() + "".join(a.raw for a in item.lead) + " "
+                if item.lead_source != canonical:
+                    out.append(("spacing", f"irregular spacing around the comment before {src!r}"))
             elif item.sep_before != want:
                 out.append(("spacing", f"irregular spacing before {src!r}"))
             p = prev.ref

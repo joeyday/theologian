@@ -89,3 +89,21 @@ def test_comment_spacing():
     # a comment written with a space before it keeps it
     src = "Ge 22:17–18 %% probably more? %%; Ex 1:1"
     assert render_items(parse_refline(src)) == src
+
+
+def test_commented_out_verses_between_refs():
+    # Joey's review style: a rejected verse moved into a comment after the separator
+    line = "Ps 66:7;%% 89:1; they will sing forever; belongs elsewhere %% 89:2;%% 90:1; not sure %% 92:8"
+    items = parse_refline(line)
+    assert [str(i.ref) for i in items] == ["Ps 66:7", "Ps 89:2", "Ps 92:8"]
+    assert [a.raw for a in items[1].lead] == ["%% 89:1; they will sing forever; belongs elsewhere %%"]
+    assert render_items(items) == line
+    import re
+    assert re.sub(r"%%[\s\S]*?%%", "", line) == "Ps 66:7; 89:2; 92:8"
+
+
+def test_comment_after_final_separator():
+    line = "Ps 66:7; 92:8;%% 93:1; maybe %%"
+    items = parse_refline(line)
+    assert [str(i.ref) for i in items] == ["Ps 66:7", "Ps 92:8"]
+    assert render_items(items) == line

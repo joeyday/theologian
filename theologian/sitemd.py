@@ -84,6 +84,12 @@ class Item:
     source_ref: str | None = None  # the ref as written, e.g. "Ge 1:1-3"
     sep_before: str | None = None  # separator as written, e.g. "; "
     gaps: list[str] = field(default_factory=list)  # whitespace before each annotation
+    # %% comments between the separator and this ref -- e.g. verses commented
+    # out during review: "66:7;%% 89:1; reason %% 89:2". The site build strips
+    # them, so the ref still continues the previous book.
+    lead: list[Annotation] = field(default_factory=list)
+    lead_source: str | None = None  # separator + comments + spacing, as written
+    trailing: str = ""  # for the last item: a separator and comments after it, as written
 
     @property
     def notes(self) -> list[str]:
@@ -235,7 +241,7 @@ def parse_refline(s: str) -> list[Item]:
     items: list[Item] = []
     book = chapter = None
     chain = False  # may the next ref omit its book name?
-    pos, sep = 0, None
+    pos, sep, lead, lead_source = 0, None, [], None
     while True:
         m = NAMED_REF_RE.match(s, pos)
         if m:
@@ -249,7 +255,8 @@ def parse_refline(s: str) -> list[Item]:
         else:
             raise RefLineError(f"expected a reference at {pos}: {s[pos:pos + 20]!r}")
         book, chapter, chain = ref.book, ref.chapter, True
-        item = Item(ref, written_book=m.groupdict().get("book"), source_ref=m[0], sep_before=sep)
+        item = Item(ref, written_book=m.groupdict().get("book"), source_ref=m[0], sep_before=sep,
+                    lead=lead, lead_source=lead_source)
         items.append(item)
         pos = m.end()
         if t := TRANSLATION_RE.match(s, pos):
@@ -267,8 +274,23 @@ def parse_refline(s: str) -> list[Item]:
         sm = re.match(r"\s*[;,]\s*", rest)
         if not sm:
             raise RefLineError(f"expected ';' or ',' at {pos}: {rest[:20]!r}")
+        sep_start = pos
         sep = sm[0]
         pos += sm.end()
+        lead, lead_source = [], None
+        while s.startswith("%%", pos):
+            end = s.find("%%", pos + 2)
+            if end == -1:
+                raise RefLineError(f"unclosed %% at {pos}")
+            lead.append(Annotation("comment", s[pos : end + 2]))
+            pos = end + 2
+            while pos < len(s) and s[pos] == " ":
+                pos += 1
+        if lead:
+            lead_source = s[sep_start:pos]
+            if not s[pos:].strip():
+                items[-1].trailing = s[sep_start:].rstrip()
+                return items
 
 
 def link_form(prev: Item | None, item: Item) -> str:
@@ -299,16 +321,16 @@ def render_items(items: list[Item]) -> str:
         form = link_form(prev, item)
         if prev is None:
             out += str(r)
-        elif form == "verses":
-            out += ", " + r.verses_part()
-        elif form == "numeric":
-            out += "; " + r.numeric()
         else:
-            out += "; " + str(r)
+            sep = ", " if form == "verses" else "; "
+            if item.lead:  # separator, comments attached to it, then a space
+                sep = sep.strip() + "".join(a.raw for a in item.lead) + " "
+            out += sep + (r.verses_part() if form == "verses" else r.numeric() if form == "numeric" else str(r))
         if item.translation:
             out += " " + item.translation
         for k, a in enumerate(item.annotations):
             out += a.spacing(item.gaps[k] if k < len(item.gaps) else None) + a.raw
+        out += item.trailing
         prev = item
     return out
 
